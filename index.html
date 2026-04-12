@@ -506,10 +506,12 @@ body { font-family: 'Heebo', sans-serif; background: var(--bg); color: var(--tex
     <div id="toolsSection" class="section active">
 
       <!-- חיפוש -->
-      <div class="search-wrap">
-        <span class="search-icon">🔍</span>
+      <div class="search-wrap" onclick="document.getElementById('toolSearch').focus()">
+        <span class="search-icon" style="pointer-events:none">🔍</span>
         <input type="text" id="toolSearch" placeholder="חפשו כלי או שאלה... (למשל: איך שולחים מייל)"
-               oninput="onToolSearch(this.value)" autocomplete="off">
+               oninput="onToolSearch(this.value)"
+               onkeydown="if(event.key==='Enter')onToolSearch(this.value)"
+               autocomplete="off" style="cursor:text">
         <button class="search-clear" id="searchClear" onclick="clearSearch()">✕</button>
       </div>
 
@@ -547,6 +549,7 @@ body { font-family: 'Heebo', sans-serif; background: var(--bg); color: var(--tex
       <div class="ai-response-box" id="aiResponse">
         <div class="ai-badge">✨ בינה מלאכותית</div>
         <div class="ai-response-text" id="aiResponseText"></div>
+        <button id="aiCopyBtn" style="display:none;width:100%;margin-top:14px;padding:11px;border-radius:12px;background:var(--surface);border:1.5px solid var(--border);color:var(--muted);font-size:13px;font-weight:700;cursor:pointer;font-family:Heebo,sans-serif;">📋 העתק תשובה</button>
       </div>
     </div>
 
@@ -949,6 +952,7 @@ function askAI() {
   btn.disabled = true;
   errBox.classList.remove('visible');
   respBox.classList.add('visible');
+  document.getElementById('aiCopyBtn').style.display = 'none';
   respText.innerHTML = '<div class="ai-loading"><span></span><span></span><span></span></div>';
 
   const url = PROXY_URL
@@ -965,6 +969,18 @@ function askAI() {
         text = '⚠️ שגיאה: ' + (data.error.message || 'נסו שוב');
       }
       respText.textContent = text;
+      // כפתור העתקה
+      var copyBtn = document.getElementById('aiCopyBtn');
+      copyBtn.style.display = 'block';
+      copyBtn.onclick = function() {
+        navigator.clipboard.writeText(text).then(function() {
+          copyBtn.textContent = '✓ הועתק!';
+          setTimeout(function() { copyBtn.textContent = '📋 העתק תשובה'; }, 2000);
+        }).catch(function() {
+          copyBtn.textContent = '⚠️ נכשל';
+          setTimeout(function() { copyBtn.textContent = '📋 העתק תשובה'; }, 2000);
+        });
+      };
     })
     .catch(function(err) {
       respBox.classList.remove('visible');
