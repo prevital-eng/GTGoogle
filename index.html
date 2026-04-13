@@ -59,7 +59,7 @@ body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-h
 .search-wrap input{flex:1;background:none;border:none;outline:none;font-size:16px;font-family:'Heebo',sans-serif;color:var(--text);padding:14px 4px;direction:rtl;-webkit-appearance:none;min-width:0;}
 .search-wrap input::placeholder{color:var(--muted);}
 .search-clear{background:none;border:none;color:var(--muted);font-size:17px;cursor:pointer;padding:6px;line-height:1;flex-shrink:0;display:none;-webkit-tap-highlight-color:transparent;}
-.search-clear.show{display:block;}
+
 .search-go{background:var(--accent);border:none;border-radius:12px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;flex-shrink:0;transition:background 0.15s;-webkit-tap-highlight-color:transparent;margin-right:2px;}
 .search-go:hover{background:#7dd3fc;}
 .search-go:disabled{background:var(--border);cursor:default;} .search-go{cursor:pointer;}
@@ -299,7 +299,7 @@ var tools = [
       'כתבו הודעה בתיבה הלבנה למטה ולחצו על חץ הכחול ←',
       'להצטרפות לערוץ חדשות: לחצו על קישור שקיבלתם ← "הצטרפו לערוץ"'
     ],
-    tip:'ב-Telegram אפשר לשלוח קבצים עד 2 ג'יגה – שימושי לשיתוף מסמכים גדולים.',
+    tip:'ב-Telegram אפשר לשלוח קבצים עד 2 ג׳יגה – שימושי לשיתוף מסמכים גדולים.',
     faqs:[
       {q:'מה ההבדל בין Telegram ל-WhatsApp?',a:'Telegram מאובטח יותר ותומך בקבוצות גדולות. WhatsApp נפוץ יותר בישראל. לרוב הוותיקים – WhatsApp מספיק.'},
       {q:'איך מצטרפים לערוץ חדשות?',a:'קבלו קישור לערוץ ← לחצו עליו ← יפתח Telegram ← לחצו "הצטרפו לערוץ". החדשות יגיעו ישירות לאפליקציה.'},
@@ -515,18 +515,18 @@ function acceptSug(){
 /* ══ INIT ══ */
 var activeTool=null, activeInnerTab={};
 
-window.addEventListener('DOMContentLoaded',function(){
-  // build chips by category
-  var cats={comm:[],video:[],remote:[],browse:[]};
+window.addEventListener('DOMContentLoaded', function() {
+
+  // בניית chips
+  var cats = {comm:[], video:[], remote:[], browse:[]};
   tools.forEach(function(t){ if(cats[t.cat]) cats[t.cat].push(t); });
 
-  function chipHTML(t){
-    return '<button class="chip" id="chip-'+t.id+'" onclick="toggleTool(\''+t.id+'\')">'+
+  function chipHTML(t) {
+    return '<button class="chip" id="chip-'+t.id+'" onclick="toggleTool(&apos;'+t.id+'&apos;)">'+
       '<span class="chip-icon">'+t.icon+'</span>'+
       '<span class="chip-texts"><span class="chip-name">'+t.name+'</span><span class="chip-tag">'+t.tagline+'</span></span>'+
       '</button>';
-  }
-  document.getElementById('chipsComm').innerHTML   = cats.comm.map(chipHTML).join('');
+  }  document.getElementById('chipsComm').innerHTML   = cats.comm.map(chipHTML).join('');
   document.getElementById('chipsVideo').innerHTML  = cats.video.map(chipHTML).join('');
   document.getElementById('chipsRemote').innerHTML = cats.remote.map(chipHTML).join('');
   document.getElementById('chipsBrowse').innerHTML = cats.browse.map(chipHTML).join('');
@@ -536,31 +536,39 @@ window.addEventListener('DOMContentLoaded',function(){
     '<span class="chip-texts"><span class="chip-name">'+googleLink.name+' ←</span><span class="chip-tag">'+googleLink.tagline+'</span></span>'+
     '</a>';
 
-  // input events
-  var inp=document.getElementById('searchInput');
-  var goBtn=document.getElementById('searchGo');
-  function onInput(){
-    var v=inp.value;
-    goBtn.disabled=false; if(!v.trim()) goBtn.disabled=true;
-    document.getElementById('searchClear').className='search-clear'+(v.length?' show':'');
-    if(!v.trim()){ document.getElementById('hintText').style.display='block'; clearSug(); return; }
-    document.getElementById('hintText').style.display='none';
-    clearTimeout(acTimer);
-    acTimer=setTimeout(function(){ showSug(inp,getSug(v)); },120);
+  // אירועי חיפוש
+  var inp    = document.getElementById('searchInput');
+  var goBtn  = document.getElementById('searchGo');
+  var clrBtn = document.getElementById('searchClear');
+
+  function handleInput() {
+    var v = inp.value;
+    clrBtn.style.display = v.length ? 'block' : 'none';
+    if (!v.trim()) {
+      document.getElementById('hintText').style.display = 'block';
+      clearSug();
+    } else {
+      document.getElementById('hintText').style.display = 'none';
+      clearTimeout(acTimer);
+      acTimer = setTimeout(function(){ showSug(inp, getSug(v)); }, 150);
+    }
   }
-  // כל אירוע קלט – נייד ודסקטופ
+
   ['input','keyup','change','compositionend','paste'].forEach(function(ev){
-    inp.addEventListener(ev, onInput);
+    inp.addEventListener(ev, handleInput);
   });
-  inp.addEventListener('keydown', function(e){
-    if ((e.key==='Tab'||e.key==='ArrowLeft') && lastSug){ e.preventDefault(); acceptSug(); return; }
-    if (e.key==='Enter'){ e.preventDefault(); runSearch(); }
+
+  inp.addEventListener('keydown', function(e) {
+    if ((e.key==='Tab'||e.key==='ArrowLeft') && lastSug) { e.preventDefault(); acceptSug(); return; }
+    if (e.key === 'Enter') { e.preventDefault(); runSearch(); }
   });
-  // כפתורי חיפוש וניקוי
-  document.getElementById('searchGo').addEventListener('click',   function(e){ e.preventDefault(); runSearch(); });
-  document.getElementById('searchGo').addEventListener('touchend', function(e){ e.preventDefault(); runSearch(); });
-  document.getElementById('searchClear').addEventListener('click',    function(){ clearSearch(); });
-  document.getElementById('searchClear').addEventListener('touchend', function(e){ e.preventDefault(); clearSearch(); });
+
+  function doSearch() { runSearch(); }
+  goBtn.addEventListener('click',    doSearch);
+  goBtn.addEventListener('touchend', function(e){ e.preventDefault(); doSearch(); });
+
+  clrBtn.addEventListener('click',    function(){ clearSearch(); });
+  clrBtn.addEventListener('touchend', function(e){ e.preventDefault(); clearSearch(); });
 });
 
 /* ══ SEARCH ══ */
@@ -636,13 +644,12 @@ function runSearch(){
 }
 
 function clearSearch(){
-  var inp=document.getElementById('searchInput');
-  inp.value=''; clearSug();
-  document.getElementById('searchGo').disabled=true;
-  document.getElementById('searchClear').className='search-clear';
-  document.getElementById('hintText').style.display='block';
-  document.getElementById('toolsSection').className='tools-section';
-  document.getElementById('aiResult').className='ai-result';
+  var inp = document.getElementById('searchInput');
+  inp.value = ''; clearSug();
+  document.getElementById('searchClear').style.display = 'none';
+  document.getElementById('hintText').style.display    = 'block';
+  document.getElementById('toolsSection').className    = 'tools-section';
+  document.getElementById('aiResult').className        = 'ai-result';
   closeTool(); inp.focus();
 }
 
