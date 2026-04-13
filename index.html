@@ -660,10 +660,10 @@ window.addEventListener('DOMContentLoaded', function() {
   document.getElementById('chipsRemote').innerHTML = cats.remote.map(chipHTML).join('');
   document.getElementById('chipsBrowse').innerHTML = cats.browse.map(chipHTML).join('');
   document.getElementById('chipsGoogle').innerHTML =
-    '<a href="'+googleLink.url+'" target="_blank" class="chip chip-google" style="grid-column:1/-1" onclick="event.stopPropagation()">'+
+    '<button class="chip chip-google" style="grid-column:1/-1;border:none;cursor:pointer;" onclick="window.open(&apos;'+googleLink.url+'&apos;,&apos;_blank&apos;)">'+
     '<span class="chip-icon">'+googleLink.icon+'</span>'+
     '<span class="chip-texts"><span class="chip-name">'+googleLink.name+' ←</span><span class="chip-tag">'+googleLink.tagline+'</span></span>'+
-    '</a>';
+    '</button>';
 
   // אירועי חיפוש
   var inp    = document.getElementById('searchInput');
