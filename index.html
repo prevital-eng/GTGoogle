@@ -815,8 +815,25 @@ function buildPanel(id){
     '<div class="inner-section '+(tab==='faq'?'active':'')+'"   id="inner-faq-'+id+'">'+
     '<div class="faq-list">'+fh+'</div></div>'+
     '<div class="tip-box"><span class="tip-label">💡 טיפ: </span>'+t.tip+'</div>'+
-    '<a href="'+t.url+'" target="_blank" class="'+btnClass+'">פתחו את '+t.name+' עכשיו ←</a>';
+    '<a href="'+t.url+'" target="_blank" class="'+btnClass+'">פתחו את '+t.name+' עכשיו ←</a>'+
+    '<button id="copy-btn-'+id+'" onclick="copySteps(&apos;'+id+'&apos;)" style="width:100%;margin:0 14px 16px;padding:11px;border-radius:12px;background:var(--surface);border:1.5px solid var(--border);color:var(--muted);font-size:13px;font-weight:700;cursor:pointer;font-family:Heebo,sans-serif;display:block;box-sizing:border-box;">📋 העתק מדריך</button>';
 }
+function copySteps(id){
+  var t=tools.filter(function(x){return x.id===id;})[0];
+  var dev=activeDevice[id]||'android';
+  var steps=t.steps;
+  if(dev==='android'&&t.stepsAndroid) steps=t.stepsAndroid;
+  if(dev==='iphone' &&t.stepsIphone)  steps=t.stepsIphone;
+  if(dev==='pc'     &&t.stepsPC)      steps=t.stepsPC;
+  var text=t.name+' - מדריך גימלאטק\n\n';
+  steps.forEach(function(s,i){ text+=(i+1)+'. '+s+'\n'; });
+  text+='\n'+t.tip+'\n\nגימלאטק לעזרה: 050-3960685';
+  navigator.clipboard.writeText(text).then(function(){
+    var btn=document.getElementById('copy-btn-'+id);
+    if(btn){ btn.textContent='✓ הועתק!'; setTimeout(function(){ btn.textContent='📋 העתק מדריך'; },2000); }
+  });
+}
+
 function closeTool(){
   var panel=document.getElementById('detailPanel');
   panel.classList.remove('open'); panel.innerHTML='';
