@@ -137,6 +137,15 @@ body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-h
 .dev-btn.pc-btn{font-size:12px;}
 .dev-intro{font-size:12px;color:var(--muted);text-align:center;padding:8px 14px 0;}
 
+/* INSTALL BUTTONS */
+.install-row{display:flex;gap:8px;margin:0 14px 6px;flex-wrap:wrap;}
+.install-btn{flex:1;min-width:120px;display:flex;align-items:center;justify-content:center;gap:6px;padding:9px 10px;border-radius:11px;border:1.5px solid var(--border);background:var(--surface);color:var(--muted);font-family:'Heebo',sans-serif;font-size:12px;font-weight:700;text-decoration:none;transition:all 0.15s;-webkit-tap-highlight-color:transparent;}
+.install-btn:hover{border-color:var(--accent);color:var(--accent);}
+.install-btn.google{border-color:rgba(52,168,83,0.4);color:#34a853;}
+.install-btn.apple{border-color:rgba(255,255,255,0.2);color:#f1f5f9;}
+.install-btn.web{border-color:rgba(56,189,248,0.3);color:var(--accent);}
+.install-label{font-size:11px;color:var(--muted);padding:4px 14px 2px;font-weight:700;text-transform:uppercase;letter-spacing:0.4px;}
+
 /* LOADING */
 .ai-loading{display:flex;gap:6px;align-items:center;padding:4px 0;}
 .ai-loading span{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:bounce 1.2s infinite;}
@@ -280,6 +289,7 @@ body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-h
 var tools = [
   /* ── תקשורת ── */
   { id:'whatsapp', cat:'comm', icon:'💬', name:'WhatsApp', tagline:'הודעות ושיחות', url:'https://web.whatsapp.com', openBtnClass:'open-btn-wa',
+    install:{android:'https://play.google.com/store/apps/details?id=com.whatsapp',iphone:'https://apps.apple.com/app/whatsapp-messenger/id310633997',pc:'https://web.whatsapp.com'},
     what:'WhatsApp היא אפליקציית המסרים הנפוצה ביותר בישראל. שולחים הודעות, תמונות, קבצים ועורכים שיחות קול ווידאו – בחינם לחלוטין.',
     steps:[
       'מצאו את האייקון הירוק של WhatsApp 💬 ולחצו עליו',
@@ -320,6 +330,7 @@ var tools = [
     ]
   },
   { id:'telegram', cat:'comm', icon:'✈️', name:'Telegram', tagline:'הודעות מאובטחות', url:'https://telegram.org',
+    install:{android:'https://play.google.com/store/apps/details?id=org.telegram.messenger',iphone:'https://apps.apple.com/app/telegram-messenger/id686449807',pc:'https://desktop.telegram.org'},
     what:'Telegram היא אפליקציית מסרים מהירה ומאובטחת. פופולרית לקבוצות גדולות, ערוצי חדשות וקהילות.',
     steps:[
       'מצאו את האייקון הכחול של Telegram ✈️ ולחצו עליו',
@@ -339,6 +350,7 @@ var tools = [
 
   /* ── וידאו ── */
   { id:'zoom', cat:'video', icon:'📹', name:'Zoom', tagline:'שיחות וידאו', url:'https://zoom.us', openBtnClass:'open-btn-zoom',
+    install:{android:'https://play.google.com/store/apps/details?id=us.zoom.videomeetings',iphone:'https://apps.apple.com/app/zoom-one-platform-to-connect/id546505307',pc:'https://zoom.us/download'},
     what:'Zoom היא תוכנת שיחות הווידאו הנפוצה ביותר בעולם. משמשת לפגישות, שיעורים ופגישות משפחה.',
     steps:[
       'קיבלתם קישור Zoom? לחצו עליו ישירות – יפתח Zoom אוטומטית',
@@ -377,6 +389,7 @@ var tools = [
     ]
   },
   { id:'googlemeet', cat:'video', icon:'📺', name:'Google Meet', tagline:'שיחות וידאו חינם', url:'https://meet.google.com',
+    install:{android:'https://play.google.com/store/apps/details?id=com.google.android.apps.meetings',iphone:'https://apps.apple.com/app/google-meet/id1013231476',pc:'https://meet.google.com'},
     what:'Google Meet מאפשרת שיחות וידאו חינמיות ישירות מהדפדפן Chrome – ללא צורך בהתקנה.',
     steps:[
       'קיבלתם קישור Meet? לחצו עליו – יפתח דפדפן Chrome',
@@ -396,6 +409,7 @@ var tools = [
 
   /* ── השתלטות מרחוק ── */
   { id:'anydesk', cat:'remote', icon:'🖥️', name:'AnyDesk', tagline:'עזרה מרחוק', url:'https://anydesk.com',
+    install:{android:'https://play.google.com/store/apps/details?id=com.anydesk.anydeskandroid',iphone:'https://apps.apple.com/app/anydesk-remote-desktop/id1126704516',pc:'https://anydesk.com/download'},
     what:'AnyDesk מאפשר למתנדב גימלאטק לראות ולשלוט במחשב שלכם מרחוק – כדי לעזור. אתם שולטים ויכולים לנתק בכל עת.',
     steps:[
       'פתחו דפדפן ← עברו ל-anydesk.com ← לחצו "Free Download"',
@@ -434,6 +448,7 @@ var tools = [
     ]
   },
   { id:'teamviewer', cat:'remote', icon:'🔧', name:'TeamViewer', tagline:'עזרה מרחוק', url:'https://teamviewer.com',
+    install:{android:'https://play.google.com/store/apps/details?id=com.teamviewer.teamviewer.market.mobile',iphone:'https://apps.apple.com/app/teamviewer-remote-control/id692035811',pc:'https://teamviewer.com/download'},
     what:'TeamViewer מאפשר גישה מרחוק למחשב – בדיוק כמו AnyDesk. אחד הכלים הנפוצים ביותר לתמיכה טכנית.',
     steps:[
       'פתחו Chrome ← עברו ל-teamviewer.com ← לחצו "הורידו בחינם" (Download Free)',
@@ -453,6 +468,7 @@ var tools = [
 
   /* ── גלישה ותוכן ── */
   { id:'youtube', cat:'browse', icon:'▶️', name:'YouTube', tagline:'סרטונים בחינם', url:'https://youtube.com',
+    install:{android:'https://play.google.com/store/apps/details?id=com.google.android.youtube',iphone:'https://apps.apple.com/app/youtube-watch-listen-stream/id544007664',pc:'https://youtube.com'},
     what:'YouTube הוא אתר הסרטונים הגדול בעולם – חדשות, בישול, שירים, יוגה, שיעורים – הכל בחינם.',
     steps:[
       'פתחו Chrome ← הקלידו youtube.com בשורת הכתובת למעלה ← לחצו Enter',
@@ -470,6 +486,7 @@ var tools = [
     ]
   },
   { id:'facebook', cat:'browse', icon:'👥', name:'Facebook', tagline:'רשת חברתית', url:'https://facebook.com', openBtnClass:'open-btn-fb',
+    install:{android:'https://play.google.com/store/apps/details?id=com.facebook.katana',iphone:'https://apps.apple.com/app/facebook/id284882215',pc:'https://facebook.com'},
     what:'Facebook היא הרשת החברתית הגדולה בעולם. מתחברים עם משפחה וחברים, מצטרפים לקבוצות ועוקבים אחר חדשות.',
     steps:[
       'פתחו Chrome ← הקלידו facebook.com ← לחצו Enter',
@@ -509,6 +526,7 @@ var tools = [
     ]
   },
   { id:'gmail', cat:'browse', icon:'✉️', name:'Gmail', tagline:'מיילים חינם', url:'https://mail.google.com',
+    install:{android:'https://play.google.com/store/apps/details?id=com.google.android.gm',iphone:'https://apps.apple.com/app/gmail-email-by-google/id422689480',pc:'https://mail.google.com'},
     what:'Gmail היא תיבת דואר אלקטרוני חינמית של גוגל. שולחים ומקבלים הודעות לכל אחד בעולם.',
     steps:[
       'פתחו Chrome ← הקלידו gmail.com ← לחצו Enter',
@@ -526,6 +544,7 @@ var tools = [
     ]
   },
   { id:'maps', cat:'browse', icon:'🗺️', name:'Google Maps', tagline:'ניווט וכתובות', url:'https://maps.google.com',
+    install:{android:'https://play.google.com/store/apps/details?id=com.google.android.apps.maps',iphone:'https://apps.apple.com/app/google-maps-transit-food/id585027354',pc:'https://maps.google.com'},
     what:'Google Maps מראה מפות ומנווטת מכל מקום לכל מקום – בחינם. עובד גם בטלפון וגם במחשב.',
     steps:[
       'פתחו Chrome ← הקלידו maps.google.com ← לחצו Enter (או פתחו אפליקציית Maps בטלפון)',
@@ -801,6 +820,17 @@ function buildPanel(id){
   }
 
   var btnClass='open-btn'+(t.openBtnClass?' '+t.openBtnClass:'');
+
+  // כפתורי התקנה
+  var installHTML='';
+  if(t.install){
+    installHTML='<div class="install-label">⬇️ הורדה והתקנה:</div><div class="install-row">';
+    if(t.install.android) installHTML+='<a href="'+t.install.android+'" target="_blank" class="install-btn google">▶ Google Play</a>';
+    if(t.install.iphone)  installHTML+='<a href="'+t.install.iphone+'"  target="_blank" class="install-btn apple">🍎 App Store</a>';
+    if(t.install.pc)      installHTML+='<a href="'+t.install.pc+'"      target="_blank" class="install-btn web">💻 אתר רשמי</a>';
+    installHTML+='</div>';
+  }
+
   panel.innerHTML=
     '<div class="panel-header"><span class="panel-icon">'+t.icon+'</span>'+
     '<div><div class="panel-title">'+t.name+'</div><div class="panel-sub">'+t.tagline+'</div></div></div>'+
@@ -815,6 +845,7 @@ function buildPanel(id){
     '<div class="inner-section '+(tab==='faq'?'active':'')+'"   id="inner-faq-'+id+'">'+
     '<div class="faq-list">'+fh+'</div></div>'+
     '<div class="tip-box"><span class="tip-label">💡 טיפ: </span>'+t.tip+'</div>'+
+    installHTML+
     '<a href="'+t.url+'" target="_blank" class="'+btnClass+'">פתחו את '+t.name+' עכשיו ←</a>'+
     '<button id="copy-btn-'+id+'" onclick="copySteps(&apos;'+id+'&apos;)" style="width:100%;margin:0 14px 16px;padding:11px;border-radius:12px;background:var(--surface);border:1.5px solid var(--border);color:var(--muted);font-size:13px;font-weight:700;cursor:pointer;font-family:Heebo,sans-serif;display:block;box-sizing:border-box;">📋 העתק מדריך</button>';
 }
