@@ -1,6 +1,6 @@
 <!--
 ================================================================
-  GimlaTech – כלי גוגל לוותיקים
+  GimlaTech – כלים דיגיטליים לוותיקים
   © 2026 רויטל פלד / Revital Peled. All Rights Reserved.
   יצרה: רויטל פלד | נבנה בסיוע Claude AI | 2026
 ================================================================
@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GimlaTech – כלי גוגל</title>
+<title>GimlaTech – כלים דיגיטליים</title>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -41,101 +41,54 @@ body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-h
   .app{max-width:480px;flex-shrink:0;border-right:1px solid #1e293b;border-left:1px solid #1e293b;background:var(--bg);}
 }
 
-/* ══ HEADER ══ */
-.header{
-  padding:22px 18px 18px;
-  background:linear-gradient(180deg,#0f172a 0%,transparent 100%);
-  position:sticky;top:0;z-index:10;backdrop-filter:blur(12px);
-  text-align:center;
-}
+/* HEADER */
+.header{padding:22px 18px 0;background:linear-gradient(180deg,#0f172a 0%,transparent 100%);position:sticky;top:0;z-index:10;backdrop-filter:blur(12px);text-align:center;}
 .logo-row{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:10px;}
 .logo-text{font-size:22px;font-weight:900;letter-spacing:-0.5px;}
 .logo-text span{color:var(--accent);}
-.page-title{
-  font-size:26px;font-weight:900;
-  color:var(--text);letter-spacing:-0.5px;
-  margin-bottom:4px;
-}
-.page-sub{font-size:13px;color:var(--muted);}
-.copy-link{
-  position:absolute;top:22px;left:16px;
-  font-size:10px;color:#1e3a5f;font-weight:500;cursor:pointer;
-  background:none;border:none;font-family:'Heebo',sans-serif;
-}
+.page-title{font-size:26px;font-weight:900;color:var(--text);letter-spacing:-0.5px;margin-bottom:4px;}
+.page-sub{font-size:13px;color:var(--muted);padding-bottom:14px;}
+.copy-link{position:absolute;top:22px;left:16px;font-size:10px;color:#1e3a5f;font-weight:500;cursor:pointer;background:none;border:none;font-family:'Heebo',sans-serif;}
 
-/* ══ BODY ══ */
-.body{flex:1;padding:16px 16px 100px;}
+/* BODY */
+.body{flex:1;padding:14px 16px 100px;}
 
-/* ══ SEARCH BOX ══ */
-.search-wrap{
-  background:var(--surface);
-  border:2px solid var(--border);
-  border-radius:18px;
-  display:flex;align-items:center;
-  padding:0 6px 0 14px;
-  margin-bottom:16px;
-  transition:border-color 0.2s;
-  box-shadow:0 4px 20px rgba(0,0,0,0.2);
-}
+/* SEARCH */
+.search-wrap{background:var(--surface);border:2px solid var(--border);border-radius:18px;display:flex;align-items:center;padding:0 6px 0 14px;margin-bottom:16px;transition:border-color 0.2s;box-shadow:0 4px 20px rgba(0,0,0,0.2);}
 .search-wrap:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px rgba(56,189,248,0.12);}
-.search-wrap input{
-  flex:1;background:none;border:none;outline:none;
-  font-size:16px;font-family:'Heebo',sans-serif;
-  color:var(--text);padding:15px 4px;direction:rtl;
-  -webkit-appearance:none;min-width:0;
-}
+.search-wrap input{flex:1;background:none;border:none;outline:none;font-size:16px;font-family:'Heebo',sans-serif;color:var(--text);padding:14px 4px;direction:rtl;-webkit-appearance:none;min-width:0;}
 .search-wrap input::placeholder{color:var(--muted);}
-.search-clear{
-  background:none;border:none;color:var(--muted);
-  font-size:17px;cursor:pointer;padding:6px;line-height:1;
-  flex-shrink:0;display:none;-webkit-tap-highlight-color:transparent;
-}
+.search-clear{background:none;border:none;color:var(--muted);font-size:17px;cursor:pointer;padding:6px;line-height:1;flex-shrink:0;display:none;-webkit-tap-highlight-color:transparent;}
 .search-clear.show{display:block;}
-.search-go{
-  background:var(--accent);border:none;border-radius:12px;
-  width:40px;height:40px;display:flex;align-items:center;justify-content:center;
-  cursor:pointer;font-size:18px;flex-shrink:0;transition:background 0.15s;
-  -webkit-tap-highlight-color:transparent;margin-right:2px;
-}
+.search-go{background:var(--accent);border:none;border-radius:12px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;flex-shrink:0;transition:background 0.15s;-webkit-tap-highlight-color:transparent;margin-right:2px;}
 .search-go:hover{background:#7dd3fc;}
 .search-go:disabled{background:var(--border);cursor:default;}
 
-/* ══ HINT TEXT ══ */
-.search-hint-text{
-  text-align:center;padding:20px 10px;
-  color:var(--muted);font-size:14px;line-height:1.7;
-}
+/* HINT */
+.search-hint-text{text-align:center;padding:16px 10px;color:var(--muted);font-size:14px;line-height:1.7;}
 .search-hint-text strong{color:var(--accent);}
 
-/* ══ CHIPS GRID ══ */
-.chips-section{display:none;animation:fadeUp 0.2s ease;}
-.chips-section.show{display:block;}
-.chips-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:8px;
-  margin-bottom:8px;
-}
-.chip{
-  background:var(--surface);border:1.5px solid var(--border);
-  border-radius:14px;padding:11px 12px;
-  cursor:pointer;transition:all 0.18s;
-  display:flex;align-items:center;gap:10px;
-  font-family:'Heebo',sans-serif;text-align:right;direction:rtl;
-  -webkit-tap-highlight-color:transparent;
-}
+/* TOOLS GRID */
+.tools-section{display:none;animation:fadeUp 0.2s ease;}
+.tools-section.show{display:block;}
+
+/* CATEGORY LABEL */
+.cat-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin:14px 0 8px;padding-right:2px;}
+
+.chips-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px;}
+.chip{background:var(--surface);border:1.5px solid var(--border);border-radius:14px;padding:11px 12px;cursor:pointer;transition:all 0.18s;display:flex;align-items:center;gap:10px;width:100%;text-align:right;direction:rtl;-webkit-tap-highlight-color:transparent;font-family:'Heebo',sans-serif;}
 .chip:active,.chip.active{border-color:var(--accent);background:var(--surface2);box-shadow:0 4px 16px rgba(56,189,248,0.15);}
 .chip-icon{font-size:1.3rem;flex-shrink:0;}
 .chip-texts{display:flex;flex-direction:column;flex:1;}
 .chip-name{font-size:13px;font-weight:700;color:var(--text);}
 .chip-tag{font-size:11px;color:var(--muted);}
 
-/* ══ AI RESULT ══ */
-.ai-result{
-  background:linear-gradient(135deg,#0c2340 0%,#1a1040 100%);
-  border:1.5px solid rgba(56,189,248,0.3);
-  border-radius:16px;padding:16px;
-  margin-bottom:14px;display:none;
-  animation:fadeUp 0.22s ease;position:relative;overflow:hidden;
-}
+/* Google link chip – special style */
+.chip-google{background:linear-gradient(135deg,rgba(56,189,248,0.08) 0%,rgba(129,140,248,0.08) 100%);border-color:rgba(56,189,248,0.3);}
+.chip-google .chip-name{color:var(--accent);}
+
+/* AI RESULT */
+.ai-result{background:linear-gradient(135deg,#0c2340 0%,#1a1040 100%);border:1.5px solid rgba(56,189,248,0.3);border-radius:16px;padding:16px;margin-bottom:14px;display:none;animation:fadeUp 0.22s ease;position:relative;overflow:hidden;}
 .ai-result::before{content:'';position:absolute;top:0;right:0;width:120px;height:120px;background:radial-gradient(circle,rgba(56,189,248,0.1) 0%,transparent 70%);pointer-events:none;}
 .ai-result.show{display:block;}
 .ai-result-badge{background:var(--accent);color:#0f172a;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:10px;}
@@ -143,7 +96,7 @@ body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-h
 .ai-result-copy{width:100%;margin-top:12px;padding:10px;border-radius:12px;background:var(--surface);border:1.5px solid var(--border);color:var(--muted);font-size:13px;font-weight:700;cursor:pointer;font-family:'Heebo',sans-serif;display:none;}
 .ai-result-copy.show{display:block;}
 
-/* ══ DETAIL PANEL ══ */
+/* DETAIL PANEL */
 .detail-panel{display:none;margin:8px 0 0;background:linear-gradient(135deg,#0c2340 0%,#1a1040 100%);border:1.5px solid rgba(129,140,248,0.35);border-radius:16px;overflow:hidden;animation:fadeUp 0.22s ease;position:relative;}
 .detail-panel::before{content:'';position:absolute;top:0;right:0;width:130px;height:130px;background:radial-gradient(circle,rgba(129,140,248,0.12) 0%,transparent 70%);pointer-events:none;}
 .detail-panel.open{display:block;}
@@ -173,6 +126,9 @@ body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-h
 .tip-box{background:rgba(251,191,36,0.08);border-right:3px solid var(--yellow);border-radius:10px;padding:10px 13px;margin:10px 14px 12px;font-size:13px;color:#fde68a;line-height:1.6;}
 .tip-label{font-weight:700;}
 .open-btn{display:block;margin:0 14px 16px;background:var(--accent);color:#0f172a;border:none;border-radius:12px;padding:12px;font-size:14px;font-weight:900;font-family:'Heebo',sans-serif;cursor:pointer;text-align:center;text-decoration:none;}
+.open-btn-wa{background:var(--wa);}
+.open-btn-zoom{background:#2d8cff;}
+.open-btn-fb{background:#1877f2;}
 
 /* LOADING */
 .ai-loading{display:flex;gap:6px;align-items:center;padding:4px 0;}
@@ -204,59 +160,58 @@ body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-h
 
 <div class="sidebar">
   <div class="sidebar-logo">Gimla<span>Tech</span></div>
-  <div class="sidebar-tag">🌐 כלי גוגל לוותיקים</div>
-  <div class="sidebar-desc">הקלידו שאלה חופשית בכל שפה, או כתבו "כלי גוגל" לרשימת כל הכלים.</div>
+  <div class="sidebar-tag">📱 כלים דיגיטליים לוותיקים</div>
+  <div class="sidebar-desc">מדריך פשוט לכלים הדיגיטליים הנפוצים ביותר – WhatsApp, Zoom, AnyDesk ועוד.</div>
   <div class="sidebar-steps">
-    <div class="sidebar-step"><div class="sidebar-step-num">1</div><div class="sidebar-step-text">הקלידו שאלה או "כלי גוגל"</div></div>
-    <div class="sidebar-step"><div class="sidebar-step-num">2</div><div class="sidebar-step-text">קבלו תשובה מיידית</div></div>
-    <div class="sidebar-step"><div class="sidebar-step-num">3</div><div class="sidebar-step-text">לחצו על כלי לפירוט מלא</div></div>
+    <div class="sidebar-step"><div class="sidebar-step-num">1</div><div class="sidebar-step-text">כתבו שאלה חופשית</div></div>
+    <div class="sidebar-step"><div class="sidebar-step-num">2</div><div class="sidebar-step-text">או בחרו כלי מהרשימה</div></div>
+    <div class="sidebar-step"><div class="sidebar-step-num">3</div><div class="sidebar-step-text">קבלו מדריך + עזרת AI</div></div>
   </div>
   <div style="margin-top:auto;padding-top:40px;font-size:11px;color:#334155;line-height:1.7">© 2026 רויטל פלד<br><span style="color:#1e3a5f">נבנה בסיוע Claude AI</span></div>
 </div>
 
 <div class="app">
-
-  <!-- HEADER -->
   <div class="header">
     <button class="copy-link" onclick="document.getElementById('about-modal').classList.remove('hidden')">© Revital Peled 2026</button>
     <div class="logo-row">
-      <img src="https://prevital-eng.github.io/GT-GDSH/logo.png"
-           style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid #38bdf8"
-           alt="GimlaTech" onerror="this.style.display='none'">
+      <img src="https://prevital-eng.github.io/GT-GDSH/logo.png" style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid #38bdf8" alt="GimlaTech" onerror="this.style.display='none'">
       <div class="logo-text">Gimla<span>Tech</span></div>
     </div>
-    <div class="page-title">כלי גוגל</div>
+    <div class="page-title">כלים דיגיטליים</div>
     <div class="page-sub">מדריך + עוזר AI בכל שפה</div>
   </div>
 
   <div class="body">
 
     <!-- SEARCH -->
-    <div class="search-wrap" style="position:relative;flex-wrap:wrap;">
+    <div class="search-wrap">
       <div style="position:relative;flex:1;display:flex;align-items:center;">
         <div id="autocompleteOverlay" style="position:absolute;right:0;top:0;height:100%;display:flex;align-items:center;padding:0 4px;pointer-events:none;font-size:16px;font-family:'Heebo',sans-serif;white-space:nowrap;overflow:hidden;width:100%;"></div>
-        <input type="text" id="searchInput"
-               placeholder='כתבו שאלה, או "כלי גוגל" לרשימה'
-               autocomplete="off" autocorrect="off" spellcheck="false"
-               style="position:relative;z-index:1;background:transparent;width:100%;">
+        <input type="text" id="searchInput" placeholder='כתבו שאלה, או "כלים" לרשימה' autocomplete="off" autocorrect="off" spellcheck="false" style="position:relative;z-index:1;background:transparent;width:100%;">
       </div>
       <button class="search-clear" id="searchClear" onclick="clearSearch()">✕</button>
       <button class="search-go" id="searchGo" onclick="runSearch()" disabled>🔍</button>
     </div>
-    <div style="font-size:11px;color:var(--muted);text-align:center;margin:-8px 0 12px;">
-      💡 Tab לקבלת הצעה · Enter לחיפוש
-    </div>
+    <div style="font-size:11px;color:var(--muted);text-align:center;margin:-8px 0 12px;">💡 Tab לקבלת הצעה · Enter לחיפוש</div>
 
-    <!-- HINT when empty -->
+    <!-- HINT -->
     <div class="search-hint-text" id="hintText">
-      💡 כתבו <strong>"כלי גוגל"</strong> לרשימת כל הכלים<br>
-      או כתבו שאלה חופשית בעברית / English
+      💡 כתבו <strong>"כלים"</strong> לרשימת כל הכלים<br>
+      או כתבו שאלה חופשית בכל שפה
     </div>
 
-    <!-- CHIPS (shown when user types "כלי גוגל") -->
-    <div class="chips-section" id="chipsSection">
-      <div style="font-size:11px;color:var(--muted);font-weight:700;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.4px;">📌 בחרו כלי לפירוט:</div>
-      <div class="chips-grid" id="chipsGrid"></div>
+    <!-- TOOLS LIST -->
+    <div class="tools-section" id="toolsSection">
+      <div class="cat-label">💬 תקשורת</div>
+      <div class="chips-grid" id="chipsComm"></div>
+      <div class="cat-label">📹 שיחות וידאו</div>
+      <div class="chips-grid" id="chipsVideo"></div>
+      <div class="cat-label">🖥️ השתלטות מרחוק</div>
+      <div class="chips-grid" id="chipsRemote"></div>
+      <div class="cat-label">🌐 גלישה ותוכן</div>
+      <div class="chips-grid" id="chipsBrowse"></div>
+      <div class="cat-label" style="color:var(--accent)">📦 כל כלי גוגל</div>
+      <div id="chipsGoogle"></div>
     </div>
 
     <!-- AI ANSWER -->
@@ -269,7 +224,7 @@ body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-h
     <!-- TOOL DETAIL -->
     <div class="detail-panel" id="detailPanel"></div>
 
-  </div><!-- /body -->
+  </div>
 
   <!-- WA BAR -->
   <div class="wa-bar">
@@ -285,10 +240,9 @@ body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-h
   <div class="footer-copy"><button onclick="document.getElementById('about-modal').classList.remove('hidden')">© 2026 רויטל פלד &nbsp;·&nbsp; 🛡️ זכויות יוצרים</button></div>
   <div class="footer-rights">🛡️ כלי זה מוגן בזכויות יוצרים &nbsp;|&nbsp; © Revital Peled 2026 &nbsp;|&nbsp; All Rights Reserved</div>
 
-  <!-- ABOUT MODAL -->
   <div class="modal-overlay hidden" id="about-modal" onclick="if(event.target===this)this.classList.add('hidden')">
     <div class="modal-box">
-      <div class="modal-title">🌐 GimlaTech – כלי גוגל</div>
+      <div class="modal-title">📱 GimlaTech – כלים דיגיטליים</div>
       <div class="modal-sub">כלי הנגשה דיגיטלית לוותיקים</div>
       <div style="background:#0f172a;border-radius:12px;padding:14px;margin-bottom:14px">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:12px;line-height:2">
@@ -296,342 +250,414 @@ body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-h
             <strong style="color:#38bdf8">יוצרת:</strong> רויטל פלד<br>
             <strong style="color:#38bdf8">שנת יצירה:</strong> 2026<br>
             <strong style="color:#38bdf8">נבנה בסיוע:</strong> Claude AI מבית Anthropic<br>
-            <strong style="color:#38bdf8">מטרה:</strong> הנגשת כלי גוגל לוותיקים
+            <strong style="color:#38bdf8">מטרה:</strong> הנגשת כלים דיגיטליים לוותיקים
           </div>
           <div style="color:#64748b;text-align:left;direction:ltr;font-size:11px;line-height:2">
             <strong style="color:#818cf8">Creator:</strong> Revital Peled<br>
             <strong style="color:#818cf8">Year:</strong> 2026<br>
             <strong style="color:#818cf8">Built with:</strong> Claude AI by Anthropic<br>
-            <strong style="color:#818cf8">Purpose:</strong> Google tools for seniors
+            <strong style="color:#818cf8">Purpose:</strong> Digital tools for seniors
           </div>
         </div>
       </div>
       <button class="modal-cancel" onclick="document.getElementById('about-modal').classList.add('hidden')">סגרו ✕</button>
     </div>
   </div>
-
-</div><!-- /app -->
-</div><!-- /page-wrap -->
+</div>
+</div>
 
 <script>
 /* ══════════════════════════════
    DATA
 ══════════════════════════════ */
 var tools = [
-  { id:'gmail',    icon:'✉️',  name:'Gmail',         tagline:'מיילים חינם',        url:'https://mail.google.com',
-    what:'Gmail היא תיבת דואר אלקטרוני (מייל) חינמית של גוגל. אפשר לשלוח ולקבל הודעות לכל אחד בעולם, בחינם לגמרי.',
-    steps:['פתחו את הדפדפן ועברו ל־gmail.com','היכנסו עם כתובת Gmail וסיסמה','לכתיבת מייל חדש – לחצו על ✏️ בפינה','כתבו כתובת הנמען, נושא ותוכן','לחצו "שלח" – המייל יגיע תוך שניות!'],
-    tip:'שכחתם סיסמה? לחצו "שכחתי סיסמה" וגוגל תעזור לאפס.',
-    faqs:[{q:'איך יוצרים חשבון Gmail חדש?',a:'עברו ל־gmail.com ולחצו "צרו חשבון". מלאו שם, בחרו כתובת וסיסמה.'},{q:'איך מחפשים מייל ישן?',a:'בראש המסך יש שורת חיפוש. כתבו שם השולח או מילה מהמייל.'},{q:'איך מעבירים מייל לאחר?',a:'פתחו המייל, לחצו "→ העבירו", כתבו כתובת הנמען ולחצו "שלח".'},{q:'מה זה תיקיית ספאם?',a:'מיילים לא רצויים שגוגל מסנן. אם פספסתם מייל חשוב – בדקו שם.'}] },
-  { id:'maps',     icon:'🗺️', name:'Google Maps',    tagline:'ניווט וכתובות',      url:'https://maps.google.com',
-    what:'Google Maps מראה מפות ומנווטת אתכם מכל מקום לכל מקום – כמו וייז, חינם.',
-    steps:['פתחו maps.google.com','הקלידו כתובת או שם המקום','לחצו "ניווט" (חץ כחול)','המפה תנחה אתכם','בסיום – לחצו "סיום ניווט"'],
-    tip:'רוצים שעות פתיחה של חנות? חפשו את שם העסק – הכל יופיע!',
-    faqs:[{q:'איך מחפשים תחנת אוטובוס קרובה?',a:'לחצו 🚌 בתפריט למטה, או חפשו "תחנת אוטובוס קרובה".'},{q:'אפשר לשמור כתובת הבית?',a:'לחצו על שם המקום, גללו למטה, לחצו "שמרו" → "בית".'},{q:'איך רואים פקקים?',a:'ירוק=פנוי, כתום=עומס, אדום=פקק. גוגל מציע מסלול עוקף.'},{q:'אפשר להשתמש ללא אינטרנט?',a:'כן! לחצו על שם האזור ובחרו "הורידו" לשמירה בטלפון.'}] },
-  { id:'youtube',  icon:'▶️',  name:'YouTube',        tagline:'סרטונים בחינם',      url:'https://youtube.com',
-    what:'YouTube הוא אתר הסרטונים הגדול בעולם – חדשות, בישול, שירים, יוגה, שיעורים – בחינם.',
-    steps:['פתחו youtube.com','הקלידו בשורת החיפוש מה שאתם מחפשים','לחצו על אחד מהסרטונים','הסרטון יתחיל – אפשר להשהות עם ⏸','לגדול? לחצו ⛶ מצד שמאל למטה'],
-    tip:'לחיצה על שם הערוץ מראה עוד סרטונים של אותו יוצר.',
-    faqs:[{q:'איך מגדילים כתוביות?',a:'לחצו ⚙️ בסרטון, "כתוביות" → "אפשרויות כתוביות" – הגדילו גופן.'},{q:'איך מאיטים סרטון?',a:'לחצו ⚙️, "מהירות הפעלה", בחרו 0.75 – ירוץ לאט יותר.'},{q:'איך שומרים סרטון לאחר כך?',a:'לחצו ⋮ ליד הסרטון, "שמרו לצפייה מאוחרת". תמצאו ב"ספרייה".'},{q:'למה פרסומות?',a:'YouTube בחינם = פרסומות. אחרי 5 שניות מופיע "דלגו" – לחצו.'}] },
-  { id:'translate',icon:'🌐', name:'תרגום גוגל',     tagline:'תרגום רגעי',          url:'https://translate.google.com',
-    what:'מתרגם מילים, משפטים ומסמכים שלמים בין יותר מ-100 שפות, בחינם.',
-    steps:['פתחו translate.google.com','שמאל: שפת המקור (למשל אנגלית)','ימין: שפת היעד (למשל עברית)','הקלידו מה שרוצים לתרגם','התרגום מופיע מיד! 🔊 לשמיעת הגייה'],
-    tip:'יש מסמך זר? לחצו "מסמכים" והעלו אותו – גוגל תתרגם הכל.',
-    faqs:[{q:'איך מתרגמים מתמונה?',a:'לחצו 📷, צלמו או העלו תמונה עם טקסט – גוגל יתרגם אוטומטית.'},{q:'אפשר לתרגם בדיבור?',a:'לחצו 🎤 ודברו – גוגל יתמלל ויתרגם מיד.'},{q:'התרגום לא מדויק?',a:'לבסיס – מצוין. לחוזים ומסמכים רפואיים – אמתו עם מתרגם אנושי.'},{q:'איך מתרגמים אתר שלם?',a:'ב-Chrome על אתר אנגלי מופיע "תרגמו דף זה" – לחצו עליו.'}] },
-  { id:'photos',   icon:'📷',  name:'Google Photos',  tagline:'גלריית תמונות',      url:'https://photos.google.com',
-    what:'Google Photos שומרת את כל תמונותיכם בענן – בטוחות, מסודרות, ונגישות מכל מכשיר.',
-    steps:['פתחו photos.google.com','לחצו "העלאה" להוסיף תמונות','התמונות יופיעו לפי תאריך','חיפוש: כתבו "חתונה" / "ילדים" / שם','לשתף: לחצו על תמונה → "שתף" ↗'],
-    tip:'גוגל מזהה פנים! חפשו שם נכד ותקבלו את כל התמונות שלו.',
-    faqs:[{q:'האם התמונות פרטיות?',a:'כן! רק אתם רואים אותן, אלא אם שיתפתם.'},{q:'כמה מקום יש בחינם?',a:'15 ג\'יגה – מספיק לאלפי תמונות.'},{q:'איך יוצרים אלבום?',a:'לחצו "+", "אלבום", תנו שם ובחרו תמונות. אפשר לשתף עם המשפחה.'},{q:'מחקתי תמונה בטעות?',a:'נשמרת בפח 60 יום: ספרייה → פח → שחזרו.'}] },
-  { id:'meet',     icon:'📹',  name:'Google Meet',    tagline:'שיחות וידאו',        url:'https://meet.google.com',
-    what:'שיחות וידאו חינמיות עם המשפחה והחברים – כמו פגישה פנים אל פנים, דרך המסך.',
-    steps:['פתחו meet.google.com','לחצו "שיחה חדשה"','שלחו את הקישור לבן/בת שרוצים לדבר','כשלוחצים על הקישור – נפגשים!','בסיום: כפתור אדום 📵 לניתוק'],
-    tip:'אין צורך להתקין כלום! Meet עובדת ישירות בדפדפן Chrome.',
-    faqs:[{q:'האם חינמי?',a:'כן! עד 100 משתתפים, ללא הגבלת זמן.'},{q:'לא שומעים אותי?',a:'בתחתית: מיקרופון 🎤. קו אדום = מושתק. לחצו להפעיל.'},{q:'איך מאפשרים מצלמה?',a:'Chrome יבקש רשות – לחצו "אפשרו". חסמתם? לחצו 🔒 בשורת הכתובת.'},{q:'אפשר מהטלפון?',a:'כן! הורידו אפליקציית Google Meet, הכניסו קישור – ואתם בשיחה.'}] },
-  { id:'drive',    icon:'💾',  name:'Google Drive',   tagline:'שמירת קבצים',        url:'https://drive.google.com',
-    what:'ארון קבצים דיגיטלי בענן. שומרים מסמכים, תמונות, טפסים – ומגיעים מכל מקום.',
-    steps:['פתחו drive.google.com','לחצו "+ חדש" ליצירת תיקייה/מסמך','גררו קובץ מהמחשב לתוך Drive','הכל נשמר אוטומטית!','לשתף: לחצן ימני על קובץ → "שיתוף"'],
-    tip:'15 ג\'יגה בחינם! מספיק לעשרות אלפי תמונות ומסמכים.',
-    faqs:[{q:'איך מעלים מהטלפון?',a:'ב-Drive לחצו "+", "העלאה", בחרו קובץ מהגלריה.'},{q:'האם עורכים יכולים לשנות?',a:'תלוי בהגדרות: "צופה בלבד" או "עורך". בחרו בחוכמה.'},{q:'איך מוצאים קובץ שאיבד?',a:'לחצו 🔍 ב-Drive, חפשו לפי שם. או "אחרונים" לקבצים אחרונים.'},{q:'אפשר לפתוח Word ב-Drive?',a:'כן! Drive פותח Word, Excel ו-PowerPoint ישירות.'}] },
-  { id:'search',   icon:'🔍',  name:'חיפוש גוגל',    tagline:'תשובות לכל שאלה',    url:'https://google.com',
-    what:'מנוע החיפוש הגדול בעולם. כל שאלה, כל מידע – כותבים ומיד מקבלים תשובה.',
-    steps:['פתחו google.com','לחצו על שורת החיפוש','כתבו השאלה בעברית: "תרופה לכאב ראש"','לחצו Enter','קראו תוצאות – הראשונות בדרך כלל הכי מדויקות'],
-    tip:'אפשר לדבר! לחצו 🎤 בשורת החיפוש ואמרו השאלה בקול.',
-    faqs:[{q:'איך מחפשים תמונות?',a:'אחרי החיפוש לחצו לשונית "תמונות" בראש הדף.'},{q:'איך מחפשים חדשות?',a:'לחצו "חדשות" אחרי החיפוש. סנן לפי "שעה אחרונה" וכו\'.'},{q:'איך יודעים שהמידע אמין?',a:'העדיפו עיתונים, משרדי ממשלה, בתי חולים.'},{q:'אפשר לחפש לפי תמונה?',a:'כן! לחצו 📷 בשורת החיפוש והעלו תמונה.'}] },
-  { id:'keep',     icon:'📝',  name:'Google Keep',    tagline:'פתקים ותזכורות',     url:'https://keep.google.com',
-    what:'לוח פתקים דיגיטלי. רשימות קניות, תזכורות, רעיונות – נשמרים אוטומטית.',
-    steps:['פתחו keep.google.com','לחצו "כתוב פתק..." לפתק חדש','כתבו – רשימה, תזכורת, מה שרוצים','נשמר אוטומטית! צבעו לארגון','להוספת תזכורת: לחצו 🔔 בפתק'],
-    tip:'Keep מסונכרן בין טלפון למחשב. כתבתם בבית – תראו בכל מקום!',
-    faqs:[{q:'איך יוצרים רשימת קניות עם ✓?',a:'לחצו "רשימה חדשה" (☑️). כל פריט עם תיבת סימון – כשקונים מסמנים ✓.'},{q:'איך מגדירים תזכורת?',a:'פתחו פתק, לחצו 🔔, בחרו תאריך ושעה – תקבלו התראה.'},{q:'איך מארגנים לפי נושא?',a:'לחצו ⋮ בפתק ובחרו צבע: ירוק=קניות, כחול=רפואה, צהוב=משפחה.'},{q:'אפשר לשתף פתק?',a:'לחצו 👤+ בתחתית הפתק, הכניסו כתובת Gmail – הם יראו ויוכלו לעדכן.'}] },
-  { id:'calendar', icon:'📅',  name:'יומן גוגל',      tagline:'ניהול זמן ופגישות',  url:'https://calendar.google.com',
-    what:'יומן דיגיטלי חינמי. שומרים תורים, פגישות, ימי הולדת – ומקבלים תזכורות אוטומטיות.',
-    steps:['פתחו calendar.google.com','לחצו "+ צרו" לאירוע חדש','כתבו שם, תאריך ושעה','הוסיפו תזכורת: 30 דקות לפני, יום לפני','לחצו "שמרו" – תקבלו התראה!'],
-    tip:'הזמינו בני משפחה לאירוע! לחצו "הוסיפו אורחים" והכניסו כתובת Gmail שלהם.',
-    faqs:[{q:'איך מוסיפים תור לרופא?',a:'לחצו "+ צרו", כתבו "תור לרופא", בחרו תאריך ושעה. הוסיפו תזכורת "יום אחד לפני".'},{q:'איך מגדירים אירוע חוזר (תרופה יומית)?',a:'צרו אירוע, בשדה "חזרה" בחרו "כל יום" – היומן ייצור את כל המועדים.'},{q:'האם מסונכרן עם הטלפון?',a:'כן! הורידו Google Calendar – מה שנכנס במחשב יופיע מיד בטלפון.'},{q:'איך משתפים יומן עם בן/בת זוג?',a:'לחצו ⋮ ליד שם היומן, "הגדרות ושיתוף", הכניסו כתובת Gmail.'},{q:'איך יוצרים יומן משפחתי משותף?',a:'calendar.google.com → לחצו + ליד "יומנים אחרים" → "צרו יומן חדש" → קראו לו "יומן משפחתי" → לחצו ⋮ ליד שמו → "הגדרות ושיתוף" → הוסיפו Gmail של כל בן משפחה ובחרו הרשאה → לחצו "שלחו". מעכשיו כל אירוע שתוסיפו ליומן המשפחתי ייראה לכולם!'}] }
+  /* ── תקשורת ── */
+  { id:'whatsapp', cat:'comm', icon:'💬', name:'WhatsApp', tagline:'הודעות ושיחות', url:'https://web.whatsapp.com', openBtnClass:'open-btn-wa',
+    what:'WhatsApp היא אפליקציית המסרים הנפוצה ביותר בישראל. שולחים הודעות, תמונות, קבצים ועורכים שיחות קול ווידאו – בחינם לחלוטין.',
+    steps:[
+      'מצאו את האייקון הירוק של WhatsApp 💬 על מסך הטלפון ולחצו עליו',
+      'תראו רשימת שיחות. למציאת איש קשר: לחצו על סמל ✏️ (עיפרון) בפינה הימנית למעלה',
+      'תיפתח רשימת אנשי הקשר – גללו או הקלידו שם בשורת החיפוש למעלה',
+      'לחצו על שם האיש קשר – תיפתח שיחה. כתבו הודעה בתיבה הלבנה למטה',
+      'לחצו על החץ הכחול ← לשליחה. ✓✓ אחרי ההודעה = נקראה'
+    ],
+    tip:'הודעה קולית: החזיקו לחוץ על 🎤 בצד שמאל של תיבת ההקלדה ← דברו ← שחררו לשליחה.',
+    faqs:[
+      {q:'איך מתקשרים שיחת קול בWhatsApp?',a:'פתחו את השיחה עם האיש קשר ← לחצו על הסמל 📞 בפינה הימנית למעלה ← השיחה מתחילה. לניתוק: לחצו על הטלפון האדום 🔴.'},
+      {q:'איך יוצרים שיחת וידאו?',a:'פתחו שיחה עם האיש קשר ← לחצו על הסמל 📹 בפינה הימנית למעלה ← הם יקבלו שיחה נכנסת. לניתוק: לחצו הטלפון האדום.'},
+      {q:'איך יוצרים קבוצת משפחה?',a:'לחצו ✏️ למעלה ← "קבוצה חדשה" ← סמנו את בני המשפחה מהרשימה (✓ ליד כל אחד) ← לחצו החץ ← כתבו שם לקבוצה (למשל "משפחת לוי") ← לחצו ✓.'},
+      {q:'איך שולחים תמונה?',a:'פתחו שיחה ← לחצו על הסמל 📎 (מהדק) בצד שמאל ← בחרו "גלריה" ← בחרו תמונה ← לחצו על החץ לשליחה.'},
+      {q:'הודעות לא מגיעות – מה עושים?',a:'בדקו: 1. האינטרנט פועל (Wi-Fi או סלולר) 2. הגדרות הטלפון ← התראות ← WhatsApp ← ודאו שמופעל 3. סגרו ופתחו שוב את האפליקציה.'}
+    ]
+  },
+  { id:'telegram', cat:'comm', icon:'✈️', name:'Telegram', tagline:'הודעות מאובטחות', url:'https://telegram.org',
+    what:'Telegram היא אפליקציית מסרים מהירה ומאובטחת. פופולרית לקבוצות גדולות, ערוצי חדשות וקהילות.',
+    steps:[
+      'מצאו את האייקון הכחול של Telegram ✈️ ולחצו עליו',
+      'לשליחת הודעה: לחצו על 🔍 למעלה והקלידו שם האיש קשר',
+      'לחצו על שמו ברשימה – תיפתח שיחה',
+      'כתבו הודעה בתיבה הלבנה למטה ולחצו על חץ הכחול ←',
+      'להצטרפות לערוץ חדשות: לחצו על קישור שקיבלתם ← "הצטרפו לערוץ"'
+    ],
+    tip:'ב-Telegram אפשר לשלוח קבצים עד 2 ג'יגה – שימושי לשיתוף מסמכים גדולים.',
+    faqs:[
+      {q:'מה ההבדל בין Telegram ל-WhatsApp?',a:'Telegram מאובטח יותר ותומך בקבוצות גדולות. WhatsApp נפוץ יותר בישראל. לרוב הוותיקים – WhatsApp מספיק.'},
+      {q:'איך מצטרפים לערוץ חדשות?',a:'קבלו קישור לערוץ ← לחצו עליו ← יפתח Telegram ← לחצו "הצטרפו לערוץ". החדשות יגיעו ישירות לאפליקציה.'},
+      {q:'איך משתיקים ערוץ רועש?',a:'החזיקו לחוץ על שם הערוץ ← לחצו "השתק" ← בחרו "השתק תמיד". עדיין תוכלו לקרוא אבל לא יפריע.'},
+      {q:'איך מוחקים הודעה ששלחתי?',a:'החזיקו לחוץ על ההודעה ← לחצו "מחקו" ← בחרו "מחקו אצל כולם" – ההודעה תיעלם גם אצל הנמען.'}
+    ]
+  },
+
+  /* ── וידאו ── */
+  { id:'zoom', cat:'video', icon:'📹', name:'Zoom', tagline:'שיחות וידאו', url:'https://zoom.us', openBtnClass:'open-btn-zoom',
+    what:'Zoom היא תוכנת שיחות הווידאו הנפוצה ביותר בעולם. משמשת לפגישות, שיעורים ופגישות משפחה.',
+    steps:[
+      'קיבלתם קישור Zoom? לחצו עליו ישירות – יפתח Zoom אוטומטית',
+      'אם מבקש להוריד: לחצו "הורידו ופתחו" ← המתינו להתקנה',
+      'יופיע חלון: הכניסו את שמכם ← לחצו "הצטרפו עם וידאו"',
+      'אם מבקש סיסמה: הכניסו את הסיסמה שנשלחה לכם יחד עם הקישור',
+      'אתם בפגישה! לניתוק: לחצו כפתור אדום "עזבו" (Leave) בפינה השמאלית למטה'
+    ],
+    tip:'לא מצלמים? לחצו "הצטרפו ללא וידאו". אפשר להפעיל מצלמה אחר כך בלחיצה על 📹 למטה.',
+    faqs:[
+      {q:'לא שומעים אותי – מה עושים?',a:'הסתכלו על הסרגל השחור בתחתית המסך ← מצאו את הסמל 🎤 (מיקרופון) ← אם יש עליו קו אדום – אתם מושתקים. לחצו עליו להפעלה. ← תראו שהסמל נהיה רגיל.'},
+      {q:'לא רואים כלום – המסך שחור?',a:'לחצו על הסמל 📹 (מצלמה) בסרגל התחתון. אם יש קו אדום – המצלמה כבויה. לחצו להפעלה. אם עדיין שחור: סגרו ופתחו Zoom מחדש.'},
+      {q:'איך מגדילים את הפנים?',a:'לחצו פעמיים על הפנים של המשתתף – יתרחב למסך מלא. לחצו פעמיים שוב לחזרה לתצוגה רגילה.'},
+      {q:'איך מסיימים שיחת Zoom?',a:'לחצו על הכפתור האדום "עזבו" (Leave) בפינה הימנית למטה ← בחרו "עזבו את הפגישה" (Leave Meeting). רק אתם יוצאים, השאר ממשיכים.'}
+    ]
+  },
+  { id:'googlemeet', cat:'video', icon:'📺', name:'Google Meet', tagline:'שיחות וידאו חינם', url:'https://meet.google.com',
+    what:'Google Meet מאפשרת שיחות וידאו חינמיות ישירות מהדפדפן Chrome – ללא צורך בהתקנה.',
+    steps:[
+      'קיבלתם קישור Meet? לחצו עליו – יפתח דפדפן Chrome',
+      'יופיע מסך עם התמונה שלכם. הכניסו שם ← לחצו "בקשו להצטרף"',
+      'המארח יאשר את הכניסה ← אתם בשיחה!',
+      'ליצירת שיחה: עברו ל-meet.google.com ← לחצו "שיחה חדשה" ← העתיקו קישור ← שלחו לבני המשפחה',
+      'לסיום: לחצו על הטלפון האדום 📵 במרכז הסרגל התחתון'
+    ],
+    tip:'Chrome יבקש רשות למצלמה ומיקרופון – חייבים ללחוץ "אפשרו" אחרת לא יראו ולא ישמעו אתכם.',
+    faqs:[
+      {q:'לחצתי "חסמו" על המצלמה בטעות – מה עושים?',a:'לחצו על סמל המנעול 🔒 בשורת הכתובת (למעלה) ← לחצו על "מצלמה" ← שנו מ"חסמו" ל"אפשרו" ← רעננו את הדף (לחצו F5).'},
+      {q:'לא שומעים אותי?',a:'הסתכלו בתחתית המסך ← מצאו 🎤 ← אם יש עליו קו אדום: לחצו עליו. אם עדיין לא עוזר: הגדרות Windows ← פרטיות ← מיקרופון ← ודאו שמופעל.'},
+      {q:'המסך מפוצל – איך רואים רק אחד?',a:'לחצו על הפנים של מי שרוצים לראות ← יופיע סמל פין 📌 ← לחצו עליו. עכשיו יוצג גדול. ללחוץ שוב לביטול.'},
+      {q:'אין לי חשבון Google – אפשר להצטרף?',a:'כן! אפשר להצטרף כאורח. לחצו על הקישור ← הכניסו שם ← לחצו "בקשו להצטרף". רק ליצור שיחה צריך חשבון.'}
+    ]
+  },
+
+  /* ── השתלטות מרחוק ── */
+  { id:'anydesk', cat:'remote', icon:'🖥️', name:'AnyDesk', tagline:'עזרה מרחוק', url:'https://anydesk.com',
+    what:'AnyDesk מאפשר למתנדב גימלאטק לראות ולשלוט במחשב שלכם מרחוק – כדי לעזור. אתם שולטים ויכולים לנתק בכל עת.',
+    steps:[
+      'פתחו דפדפן Chrome ← עברו ל-anydesk.com ← לחצו על הכפתור הכחול "Free Download"',
+      'יורד קובץ – לחצו עליו למטה בדפדפן ← לחצו "כן" אם שואל האם להפעיל',
+      'AnyDesk יפתח ← תראו מספר בן 9 ספרות גדול (למשל: 123 456 789)',
+      'מסרו את המספר הזה בלבד למתנדב גימלאטק שעוזר לכם',
+      'כשהמתנדב מתחבר: תופיע הודעה ← לחצו "אשרו" (Accept) ← הם יוכלו לראות ולעזור. לניתוק: לחצו X בחלון AnyDesk'
+    ],
+    tip:'⚠️ בטיחות: מסרו מספר AnyDesk רק למי שאתם מכירים ובטחתם בו. לעולם לא לאנשים שהתקשרו אליכם בטלפון!',
+    faqs:[
+      {q:'האם זה בטוח?',a:'כן, כשאתם שולטים. רק אתם מחליטים מי נכנס – חייבים ללחוץ "אשרו". תוכלו לנתק בכל שנייה בלחיצה על X. אסור לאשר גישה ל"שירות לקוחות Microsoft" שהתקשר אליכם – זה תרמית!'},
+      {q:'איך מנתקים מיידית?',a:'לחצו על X האדום בחלון AnyDesk ← "סיימו את הגישה" (End Session). אפשר גם לסגור את המחשב לגמרי – הגישה תנותק מיד.'},
+      {q:'ההורדה לא עובדת?',a:'ודאו שהדפדפן הוא Chrome. עברו ל-anydesk.com ← לחצו "Free Download" ← בחרו "Windows" (או Mac) ← המתינו להורדה ← לחצו על הקובץ שהורד.'},
+      {q:'המספר השתנה – למה?',a:'המספר (Desk ID) קבוע ולא משתנה. אם נראה שונה – ייתכן שנפתחה גרסה אחרת. ודאו שאתם פותחים AnyDesk ולא תוכנה אחרת.'}
+    ]
+  },
+  { id:'teamviewer', cat:'remote', icon:'🔧', name:'TeamViewer', tagline:'עזרה מרחוק', url:'https://teamviewer.com',
+    what:'TeamViewer מאפשר גישה מרחוק למחשב – בדיוק כמו AnyDesk. אחד הכלים הנפוצים ביותר לתמיכה טכנית.',
+    steps:[
+      'פתחו Chrome ← עברו ל-teamviewer.com ← לחצו "הורידו בחינם" (Download Free)',
+      'פתחו את הקובץ שהורד ← לחצו "הסכים והתקן" (Agree & Install)',
+      'TeamViewer יפתח ← תראו שני מספרים: "המזהה שלכם" (Your ID) ו"סיסמה" (Password)',
+      'מסרו את שני המספרים למתנדב גימלאטק בלבד',
+      'כשמתחברים: תראו הודעה ← לחצו "אשרו". לניתוק: לחצו X בחלון TeamViewer'
+    ],
+    tip:'⚠️ הסיסמה משתנה בכל פעם שפותחים TeamViewer מחדש – זה אבטחה! תמיד מסרו גם מזהה וגם סיסמה עדכניים.',
+    faqs:[
+      {q:'מה ההבדל בין TeamViewer ל-AnyDesk?',a:'שניהם כלים מצוינים לאותה מטרה – גישה מרחוק. AnyDesk מהיר קצת יותר. TeamViewer נפוץ יותר בחברות. לשימוש ביתי – שניהם חינם.'},
+      {q:'קיבלתי הודעה "מסחרי" – מה עושים?',a:'TeamViewer לפעמים חושב שהשימוש מסחרי. לחצו "זה שימוש אישי" (Personal Use) ← "המשיכו" (Continue). אם לא עוזר – נסו AnyDesk במקום.'},
+      {q:'איך מנתקים מיידית?',a:'לחצו על X האדום בחלון TeamViewer ← "נתקו" (Disconnect). אפשר גם לסגור את המחשב – הגישה מנותקת מיד.'},
+      {q:'לא מוצא את TeamViewer אחרי ההתקנה?',a:'לחצו על כפתור Windows (⊞) ← הקלידו "TeamViewer" ← לחצו Enter. אם לא מופיע – ייתכן שההתקנה לא הושלמה, נסו להוריד שוב.'}
+    ]
+  },
+
+  /* ── גלישה ותוכן ── */
+  { id:'youtube', cat:'browse', icon:'▶️', name:'YouTube', tagline:'סרטונים בחינם', url:'https://youtube.com',
+    what:'YouTube הוא אתר הסרטונים הגדול בעולם – חדשות, בישול, שירים, יוגה, שיעורים – הכל בחינם.',
+    steps:[
+      'פתחו Chrome ← הקלידו youtube.com בשורת הכתובת למעלה ← לחצו Enter',
+      'בראש העמוד יש שורת חיפוש 🔍 ← הקלידו מה שמחפשים (למשל: "שיר ארץ ישראל שלי")',
+      'לחצו Enter ← יופיעו תוצאות. לחצו על הסרטון הרצוי',
+      'הסרטון יתחיל לרוץ. בסרגל למטה: ⏸ להשהיה, ▶ להמשך',
+      'לגדול למסך מלא: לחצו על הריבוע ⛶ בפינה הימנית של הסרטון'
+    ],
+    tip:'הסרטון מהיר מדי? לחצו ⚙️ ← "מהירות הפעלה" ← בחרו 0.75 – ירוץ לאט יותר.',
+    faqs:[
+      {q:'איך מגדילים כתוביות?',a:'בזמן צפייה ← לחצו ⚙️ (הגדרות) בסרגל התחתון ← "כתוביות" ← "אפשרויות כתוביות" ← "גודל גופן" ← הגדילו עם הסרגל ← לחצו X לסגירה.'},
+      {q:'איך שומרים סרטון לצפייה מאוחר יותר?',a:'לחצו על שלוש הנקודות ⋮ מתחת לשם הסרטון (לא בזמן צפייה) ← "שמרו לצפייה מאוחרת יותר". תמצאו ב: ☰ תפריט ← "ספרייה".'},
+      {q:'איך מחפשים בעברית?',a:'YouTube מבין עברית מצוין. כתבו ישירות בעברית בשורת החיפוש. אפשר גם לדבר: לחצו 🎤 בשורת החיפוש ← אמרו מה מחפשים.'},
+      {q:'למה הסרטון נתקע?',a:'בעיית אינטרנט. נסו: 1. רעננו דף (F5) 2. בדקו שיש Wi-Fi 3. הורידו איכות סרטון: לחצו ⚙️ ← "איכות" ← בחרו 480p במקום 1080p.'}
+    ]
+  },
+  { id:'facebook', cat:'browse', icon:'👥', name:'Facebook', tagline:'רשת חברתית', url:'https://facebook.com', openBtnClass:'open-btn-fb',
+    what:'Facebook היא הרשת החברתית הגדולה בעולם. מתחברים עם משפחה וחברים, מצטרפים לקבוצות ועוקבים אחר חדשות.',
+    steps:[
+      'פתחו Chrome ← הקלידו facebook.com ← לחצו Enter',
+      'הכניסו כתובת אימייל וסיסמה ← לחצו "התחברו" (Log In)',
+      'תראו את הניוזפיד – פוסטים מחבריכם. גללו למטה לקריאה',
+      'לחיפוש חבר: לחצו 🔍 בראש העמוד ← הקלידו שמו ← לחצו על שמו ← "הוסיפו חבר"',
+      'לכתיבת פוסט: לחצו על "מה אתם חושבים?" ← כתבו ← לחצו "פרסמו"'
+    ],
+    tip:'רוצים לראות רק פוסטים של משפחה? לחצו על "חברים" בסרגל שמאל ← "רשימות" ← "משפחה קרובה".',
+    faqs:[
+      {q:'שכחתי סיסמה – מה עושים?',a:'בדף ההתחברות ← לחצו "שכחתם סיסמה?" ← הכניסו כתובת אימייל ← לחצו "חפשו" ← קבלו קוד למייל ← הכניסו קוד ← הגדירו סיסמה חדשה.'},
+      {q:'איך מצטרפים לקבוצה?',a:'לחצו 🔍 ← הקלידו שם הקבוצה ← לחצו על שמה ← לחצו "הצטרפו לקבוצה". אם פרטית – מנהל יאשר תוך שעות-ימים.'},
+      {q:'קיבלתי בקשת חברות ממישהו לא מוכר?',a:'אל תאשרו! לחצו "מחקו בקשה". פרופילים מזויפים נפוצים. אשרו רק אנשים שאתם מכירים בחיים האמיתיים.'},
+      {q:'איך מורידים פוסט שלא אהבתי?',a:'לחצו על שלוש הנקודות ⋮ בפינה הימנית של הפוסט ← "הסתירו פוסט" – לא יופיע יותר. ← "הסתירו את כל הפוסטים מ-[שם]" – למי שמעצבן יותר.'}
+    ]
+  },
+  { id:'gmail', cat:'browse', icon:'✉️', name:'Gmail', tagline:'מיילים חינם', url:'https://mail.google.com',
+    what:'Gmail היא תיבת דואר אלקטרוני חינמית של גוגל. שולחים ומקבלים הודעות לכל אחד בעולם.',
+    steps:[
+      'פתחו Chrome ← הקלידו gmail.com ← לחצו Enter',
+      'הכניסו כתובת Gmail (שמסתיימת ב-@gmail.com) וסיסמה ← לחצו "הבא"',
+      'תראו את תיבת הדואר הנכנס. לכתיבת מייל: לחצו על "+ כתיבה" בפינה הימנית למעלה',
+      'מלאו: לֹ (כתובת הנמען) ← נושא ← גוף ההודעה',
+      'לחצו "שלח" (הכפתור הכחול) ← המייל יגיע תוך שניות!'
+    ],
+    tip:'לצירוף קובץ או תמונה: בחלון הכתיבה ← לחצו על סמל המהדק 📎 למטה ← בחרו קובץ מהמחשב.',
+    faqs:[
+      {q:'איך מחפשים מייל ישן?',a:'בראש הדף יש שורת חיפוש ארוכה ← הקלידו שם השולח או מילה מהמייל ← לחצו 🔍 ← יופיעו כל המיילים הקשורים.'},
+      {q:'מייל חשוב הגיע לתיקיית ספאם?',a:'בסרגל השמאלי ← לחצו "ספאם" ← מצאו את המייל ← לחצו עליו ← לחצו "לא ספאם" (Not spam) ← יחזור לתיבה הראשית.'},
+      {q:'שכחתי סיסמה?',a:'בדף ההתחברות ← לחצו "שכחתי סיסמה" ← גוגל תשלח קוד לטלפון או מייל חלופי ← הכניסו קוד ← הגדירו סיסמה חדשה.'},
+      {q:'איך מגדירים חתימה אוטומטית?',a:'לחצו על ⚙️ (גלגל שיניים) בפינה הימנית למעלה ← "הצג את כל ההגדרות" ← גללו עד "חתימה" ← לחצו "צרו חתימה חדשה" ← כתבו שם ופרטי קשר ← לחצו "שמרו שינויים" למטה.'}
+    ]
+  },
+  { id:'maps', cat:'browse', icon:'🗺️', name:'Google Maps', tagline:'ניווט וכתובות', url:'https://maps.google.com',
+    what:'Google Maps מראה מפות ומנווטת מכל מקום לכל מקום – בחינם. עובד גם בטלפון וגם במחשב.',
+    steps:[
+      'פתחו Chrome ← הקלידו maps.google.com ← לחצו Enter (או פתחו אפליקציית Maps בטלפון)',
+      'בשורת החיפוש למעלה ← הקלידו כתובת יעד (למשל: "רחוב הרצל 10 תל אביב")',
+      'לחצו Enter ← יופיע הסיכה 📍 על המפה ← לחצו על הכפתור הכחול "ניווט" (Directions)',
+      'בחרו אמצעי תחבורה: 🚗 רכב / 🚌 אוטובוס / 🚶 הליכה ← לחצו "התחילו"',
+      'הניווט מתחיל! עקבו אחר ההוראות הקוליות. לסיום: לחצו X למטה ← "סיימו ניווט"'
+    ],
+    tip:'לפני נסיעה: לחצו "תצוגת רחוב" 🧍 לראות איך המקום נראה במציאות – עוזר למצוא חנייה.',
+    faqs:[
+      {q:'איך שומרים כתובת הבית?',a:'חפשו את כתובת הבית ← לחצו על הסיכה ← לחצו "שמרו" (Save) ← בחרו "בית" (Home) ← לחצו "שמרו". מעכשיו לחצו "בית" בחיפוש ותגיעו מיד.'},
+      {q:'איך בודקים זמן הגעה מראש?',a:'חפשו יעד ← לחצו "ניווט" ← לחצו על שעת ההגעה למעלה ← שנו ל"יציאה בשעה" ← הכניסו שעת יציאה ← Maps יראה פקקים צפויים.'},
+      {q:'הניווט מוביל למקום הלא נכון?',a:'לחצו X לעצירת ניווט ← חפשו שוב עם כתובת מדויקת יותר (כלול עיר). אם מסעדה/חנות – חפשו לפי שם העסק ולא כתובת.'},
+      {q:'איך מורידים מפה לשימוש ללא אינטרנט?',a:'חפשו שם עיר ← לחצו על שם העיר בתחתית המסך ← לחצו "הורידו" (Download) ← המתינו ← המפה נשמרת לשימוש ללא Wi-Fi.'}
+    ]
+  }
 ];
+
+/* כלי גוגל – קישור לאפליקציה */
+var googleLink = {
+  id:'google-all', icon:'🌐', name:'כל כלי גוגל', tagline:'Gmail, Maps, YouTube, יומן ועוד',
+  url:'https://prevital-eng.github.io/GTGoogle/'
+};
 
 /* ══ PROXY & PROMPTS ══ */
 var PROXY = 'https://script.google.com/macros/s/AKfycbziw5JD4UTjz4idl45Xwf5EnUuB_NVnI0JUUibOd2XefAFn9kdISJVKkP46_ZirHeez/exec';
-var SYS   = 'אתה עוזר דיגיטלי של גימלאטק לוותיקים בישראל, מומחה לכלי גוגל.\n' +
-  'כללים חשובים:\n' +
-  '1. ענה בשפת השאלה (עברית/אנגלית/רוסית/כל שפה אחרת).\n' +
-  '2. קרא את השאלה בעיון – ענה בדיוק על מה שנשאל, לא על נושא קרוב.\n' +
-  '   לדוגמה: שיתוף יומן שונה משיתוף אירוע. יומן משפחתי שונה מאירוע משפחתי.\n' +
-  '3. שפה פשוטה, משפטים קצרים, מספר שלבים ברורים.\n' +
-  '4. אם מונח טכני הכרחי – הסבר אותו מיד בסוגריים.\n' +
-  '5. בסוף הוסף שורה: גימלאטק לעזרה: 050-3960685\n\n' +
-  'ידע ספציפי על Google Calendar – יומן משפחתי:\n' +
-  'יומן משפחתי = יומן משותף ב-Google Calendar שכל בני המשפחה רואים ויכולים לערוך.\n' +
-  'יצירת יומן משפחתי: 1. פתחו calendar.google.com 2. לחצו על + ליד יומנים אחרים בצד שמאל 3. בחרו צרו יומן חדש 4. קראו לו יומן משפחתי 5. לחצו על שלוש נקודות ⋮ ליד שם היומן > הגדרות ושיתוף 6. גללו לשתפו עם אנשים ספציפיים > הוסיפו כתובת Gmail של כל בן משפחה 7. בחרו הרשאה: ראו את כל פרטי האירועים או ערכו אירועים 8. לחצו שלחו – כל אחד יקבל הזמנה.\n' +
-  'חשוב: כל אירוע שתוסיפו ליומן המשפחתי (ולא ליומן האישי) ייראה לכולם אוטומטית.';
+var SYS = 'אתה עוזר דיגיטלי של גימלאטק לוותיקים בישראל, מומחה לכלים דיגיטליים.\n' +
+  'כללים:\n' +
+  '1. ענה בשפת השאלה (עברית/אנגלית/רוסית/כל שפה).\n' +
+  '2. ענה בדיוק על מה שנשאל – קרא בעיון.\n' +
+  '3. שפה פשוטה, משפטים קצרים, שלבים ממוספרים.\n' +
+  '4. מונח טכני – הסבר מיד בסוגריים.\n' +
+  '5. בסוף: "גימלאטק לעזרה: 050-3960685"\n\n' +
+  'כלים מוכרים: WhatsApp, Telegram, Zoom, Google Meet, AnyDesk, TeamViewer, YouTube, Facebook, Gmail, Google Maps, כלי גוגל.';
 
-/* ══ KEYWORDS that show ALL chips ══ */
-var ALL_KEYWORDS = ['כלי גוגל','כלים','google tools','רשימה','כל הכלים','הכל','all tools'];
+/* ══ KEYWORDS ══ */
+var ALL_KW = ['כלים','רשימה','הכל','all','tools','כל הכלים','דיגיטלי'];
+function isAllKW(q){ var ql=q.trim().toLowerCase(); for(var i=0;i<ALL_KW.length;i++) if(ql.indexOf(ALL_KW[i])!==-1) return true; return false; }
 
-function isAllKeyword(q) {
-  var ql = q.trim().toLowerCase();
-  for (var i=0; i<ALL_KEYWORDS.length; i++) {
-    if (ql === ALL_KEYWORDS[i] || ql.indexOf(ALL_KEYWORDS[i]) !== -1) return true;
-  }
-  return false;
-}
-
-/* ══ FIND MATCHING TOOL by name ══ */
-function findMatchingTool(q) {
-  var ql = q.trim().toLowerCase();
-  // exact or partial name match
-  for (var i=0; i<tools.length; i++) {
-    var t = tools[i];
-    if (ql === t.name.toLowerCase()) return t;
-    if (ql.indexOf(t.name.toLowerCase()) !== -1) return t;
-    // also check Hebrew keywords per tool
-    var keywords = (t.name + ' ' + t.tagline).toLowerCase();
-    if (keywords.indexOf(ql) !== -1) return t;
+function findTool(q){
+  var ql=q.trim().toLowerCase();
+  for(var i=0;i<tools.length;i++){
+    var t=tools[i];
+    if(ql===t.name.toLowerCase()) return t;
+    if(ql.indexOf(t.name.toLowerCase())!==-1) return t;
+    if((t.name+' '+t.tagline).toLowerCase().indexOf(ql)!==-1) return t;
   }
   return null;
 }
 
 /* ══ AUTOCOMPLETE ══ */
-var autocompleteTimer = null;
-var lastSuggestion = '';
+var acTimer=null, lastSug='';
+var sugList=['כלים'].concat(tools.map(function(t){return t.name;})).concat(['איך מחברים ל-Zoom?','איך מוסיפים איש קשר בWhatsApp?','איך משתמשים ב-AnyDesk?','איך מורידים YouTube?']);
 
-function showSuggestion(inp, suggestion) {
-  if (!suggestion || !inp.value) { clearSuggestion(); return; }
-  var overlay = document.getElementById('autocompleteOverlay');
-  var typed   = inp.value;
-  // show only the completion part after what's typed
-  if (suggestion.toLowerCase().indexOf(typed.toLowerCase()) === 0) {
-    overlay.innerHTML =
-      '<span style="color:transparent">' + escHtml(typed) + '</span>' +
-      '<span style="color:var(--muted);opacity:0.6">' + escHtml(suggestion.slice(typed.length)) + '</span>';
-    lastSuggestion = suggestion;
-  } else {
-    clearSuggestion();
-  }
+function getSug(typed){
+  if(!typed||typed.length<2) return '';
+  var tl=typed.toLowerCase();
+  for(var i=0;i<sugList.length;i++) if(sugList[i].toLowerCase().indexOf(tl)===0&&sugList[i].length>typed.length) return sugList[i];
+  return '';
 }
-
-function clearSuggestion() {
-  document.getElementById('autocompleteOverlay').innerHTML = '';
-  lastSuggestion = '';
+function showSug(inp,s){
+  if(!s||!inp.value){clearSug();return;}
+  var ov=document.getElementById('autocompleteOverlay');
+  if(s.toLowerCase().indexOf(inp.value.toLowerCase())===0){
+    ov.innerHTML='<span style="color:transparent">'+esc(inp.value)+'</span><span style="color:var(--muted);opacity:0.6">'+esc(s.slice(inp.value.length))+'</span>';
+    lastSug=s;
+  } else clearSug();
 }
-
-function escHtml(s) {
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-}
-
-function acceptSuggestion() {
-  if (!lastSuggestion) return false;
-  var inp = document.getElementById('searchInput');
-  inp.value = lastSuggestion;
-  clearSuggestion();
-  document.getElementById('searchGo').disabled = false;
-  document.getElementById('searchClear').className = 'search-clear show';
+function clearSug(){ document.getElementById('autocompleteOverlay').innerHTML=''; lastSug=''; }
+function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function acceptSug(){
+  if(!lastSug) return false;
+  var inp=document.getElementById('searchInput');
+  inp.value=lastSug; clearSug();
+  document.getElementById('searchGo').disabled=false;
+  document.getElementById('searchClear').className='search-clear show';
   return true;
 }
 
-/* Suggestions list – tool names + common questions */
-var suggestions = ['כלי גוגל'].concat(tools.map(function(t){ return t.name; })).concat([
-  'איך שולחים מייל?',
-  'איך מנווטים עם Maps?',
-  'איך מעלים תמונות?',
-  'איך יוצרים אירוע ביומן?',
-  'איך מצרפים קובץ?'
-]);
-
-function getAutoSuggestion(typed) {
-  if (!typed || typed.length < 2) return '';
-  var tl = typed.toLowerCase();
-  for (var i=0; i<suggestions.length; i++) {
-    if (suggestions[i].toLowerCase().indexOf(tl) === 0 && suggestions[i].length > typed.length) {
-      return suggestions[i];
-    }
-  }
-  return '';
-}
-
 /* ══ INIT ══ */
-var activeTool = null, activeInnerTab = {};
+var activeTool=null, activeInnerTab={};
 
-window.addEventListener('DOMContentLoaded', function() {
-  // build chips
-  document.getElementById('chipsGrid').innerHTML = tools.map(function(t){
+window.addEventListener('DOMContentLoaded',function(){
+  // build chips by category
+  var cats={comm:[],video:[],remote:[],browse:[]};
+  tools.forEach(function(t){ if(cats[t.cat]) cats[t.cat].push(t); });
+
+  function chipHTML(t){
     return '<button class="chip" id="chip-'+t.id+'" onclick="toggleTool(\''+t.id+'\')">'+
       '<span class="chip-icon">'+t.icon+'</span>'+
       '<span class="chip-texts"><span class="chip-name">'+t.name+'</span><span class="chip-tag">'+t.tagline+'</span></span>'+
       '</button>';
-  }).join('');
-
-  var inp   = document.getElementById('searchInput');
-  var goBtn = document.getElementById('searchGo');
-  var clrBtn= document.getElementById('searchClear');
-
-  function onInput() {
-    var v = inp.value;
-    goBtn.disabled   = v.trim().length < 1;
-    clrBtn.className = 'search-clear' + (v.length ? ' show' : '');
-
-    if (!v.trim()) {
-      document.getElementById('hintText').style.display = 'block';
-      document.getElementById('chipsSection').className = 'chips-section';
-      clearSuggestion();
-      return;
-    }
-    document.getElementById('hintText').style.display = 'none';
-
-    // autocomplete suggestion
-    clearTimeout(autocompleteTimer);
-    autocompleteTimer = setTimeout(function(){
-      showSuggestion(inp, getAutoSuggestion(v));
-    }, 120);
   }
+  document.getElementById('chipsComm').innerHTML   = cats.comm.map(chipHTML).join('');
+  document.getElementById('chipsVideo').innerHTML  = cats.video.map(chipHTML).join('');
+  document.getElementById('chipsRemote').innerHTML = cats.remote.map(chipHTML).join('');
+  document.getElementById('chipsBrowse').innerHTML = cats.browse.map(chipHTML).join('');
+  document.getElementById('chipsGoogle').innerHTML =
+    '<a href="'+googleLink.url+'" target="_blank" class="chip chip-google" style="grid-column:1/-1">'+
+    '<span class="chip-icon">'+googleLink.icon+'</span>'+
+    '<span class="chip-texts"><span class="chip-name">'+googleLink.name+' ←</span><span class="chip-tag">'+googleLink.tagline+'</span></span>'+
+    '</a>';
 
-  inp.addEventListener('input', onInput);
-  inp.addEventListener('keyup', onInput);
-  inp.addEventListener('keydown', function(e){
-    // Tab or ArrowLeft accepts suggestion
-    if ((e.key === 'Tab' || e.key === 'ArrowLeft') && lastSuggestion) {
-      e.preventDefault();
-      acceptSuggestion();
-      return;
-    }
-    if (e.key === 'Enter' && !goBtn.disabled) runSearch();
+  // input events
+  var inp=document.getElementById('searchInput');
+  var goBtn=document.getElementById('searchGo');
+  function onInput(){
+    var v=inp.value;
+    goBtn.disabled=v.trim().length<1;
+    document.getElementById('searchClear').className='search-clear'+(v.length?' show':'');
+    if(!v.trim()){ document.getElementById('hintText').style.display='block'; clearSug(); return; }
+    document.getElementById('hintText').style.display='none';
+    clearTimeout(acTimer);
+    acTimer=setTimeout(function(){ showSug(inp,getSug(v)); },120);
+  }
+  inp.addEventListener('input',onInput);
+  inp.addEventListener('keyup',onInput);
+  inp.addEventListener('keydown',function(e){
+    if((e.key==='Tab'||e.key==='ArrowLeft')&&lastSug){ e.preventDefault(); acceptSug(); return; }
+    if(e.key==='Enter'&&!goBtn.disabled) runSearch();
   });
 });
 
 /* ══ SEARCH ══ */
-function runSearch() {
-  clearSuggestion();
-  var q = document.getElementById('searchInput').value.trim();
-  if (!q) return;
+function runSearch(){
+  clearSug();
+  var q=document.getElementById('searchInput').value.trim();
+  if(!q) return;
 
-  // 1. "כלי גוגל" → הצג את כל הכלים
-  if (isAllKeyword(q)) {
-    document.getElementById('hintText').style.display  = 'none';
-    document.getElementById('chipsSection').className  = 'chips-section show';
-    document.getElementById('aiResult').className      = 'ai-result';
-    closeTool();
+  // כלים → רשימה
+  if(isAllKW(q)){
+    document.getElementById('hintText').style.display='none';
+    document.getElementById('toolsSection').className='tools-section show';
+    document.getElementById('aiResult').className='ai-result';
+    closeTool(); return;
+  }
+
+  // שם כלי ספציפי → פתח פאנל
+  var matched=findTool(q);
+  if(matched){
+    document.getElementById('hintText').style.display='none';
+    document.getElementById('toolsSection').className='tools-section show';
+    document.getElementById('aiResult').className='ai-result';
+    setTimeout(function(){ toggleTool(matched.id); },60);
     return;
   }
 
-  // 2. שם כלי ספציפי → פתח ישירות את הפאנל שלו
-  var matched = findMatchingTool(q);
-  if (matched) {
-    document.getElementById('hintText').style.display  = 'none';
-    document.getElementById('chipsSection').className  = 'chips-section show';
-    document.getElementById('aiResult').className      = 'ai-result';
-    // פתח את הכלי אחרי רנדור הגריד
-    setTimeout(function(){ toggleTool(matched.id); }, 60);
-    return;
-  }
+  // שאלה חופשית → AI
+  var result=document.getElementById('aiResult');
+  var badge=document.getElementById('aiBadge');
+  var txt=document.getElementById('aiResultText');
+  var copyBtn=document.getElementById('aiResultCopy');
+  var goBtn=document.getElementById('searchGo');
 
-  // 3. שאלה חופשית → AI
-  // העשר את השאלה אם היא מזכירה כלי ספציפי
-  var enriched = q;
-  var toolMentioned = tools.filter(function(t){
-    return q.toLowerCase().indexOf(t.name.toLowerCase()) !== -1 ||
-           q.indexOf(t.tagline) !== -1;
-  });
-  if (toolMentioned.length === 0) {
-    // נסה לזהות לפי מילות מפתח
-    if (q.indexOf('יומן') !== -1) enriched = q + ' (Google Calendar)';
-    else if (q.indexOf('מייל') !== -1 || q.indexOf('דואר') !== -1) enriched = q + ' (Gmail)';
-    else if (q.indexOf('תמונ') !== -1) enriched = q + ' (Google Photos)';
-    else if (q.indexOf('וידאו') !== -1 || q.indexOf('שיחה') !== -1) enriched = q + ' (Google Meet)';
-    else if (q.indexOf('קובץ') !== -1 || q.indexOf('מסמך') !== -1) enriched = q + ' (Google Drive)';
-    else if (q.indexOf('פתק') !== -1 || q.indexOf('תזכורת') !== -1) enriched = q + ' (Google Keep)';
-  }
-  var result  = document.getElementById('aiResult');
-  var badge   = document.getElementById('aiBadge');
-  var txt     = document.getElementById('aiResultText');
-  var copyBtn = document.getElementById('aiResultCopy');
-  var goBtn   = document.getElementById('searchGo');
+  // הקשר לפי מילות מפתח
+  var enriched=q;
+  if(q.indexOf('וואטסאפ')!==-1||q.toLowerCase().indexOf('whatsapp')!==-1) enriched=q+' (WhatsApp)';
+  else if(q.indexOf('זום')!==-1||q.toLowerCase().indexOf('zoom')!==-1) enriched=q+' (Zoom)';
+  else if(q.toLowerCase().indexOf('anydesk')!==-1||q.indexOf('השתלטות')!==-1) enriched=q+' (AnyDesk)';
+  else if(q.indexOf('פייסבוק')!==-1||q.toLowerCase().indexOf('facebook')!==-1) enriched=q+' (Facebook)';
+  else if(q.indexOf('יוטיוב')!==-1||q.toLowerCase().indexOf('youtube')!==-1) enriched=q+' (YouTube)';
+  else if(q.indexOf('מייל')!==-1||q.toLowerCase().indexOf('gmail')!==-1) enriched=q+' (Gmail)';
 
-  goBtn.disabled    = true;
-  goBtn.textContent = '⏳';
-  copyBtn.className = 'ai-result-copy';
-  result.className  = 'ai-result show';
-  badge.textContent = '✨ מחפש...';
-  txt.innerHTML     = '<div class="ai-loading"><span></span><span></span><span></span></div>';
-  document.getElementById('hintText').style.display  = 'none';
-  document.getElementById('chipsSection').className  = 'chips-section';
+  goBtn.disabled=true; goBtn.textContent='⏳';
+  copyBtn.className='ai-result-copy';
+  result.className='ai-result show';
+  badge.textContent='✨ מחפש...';
+  txt.innerHTML='<div class="ai-loading"><span></span><span></span><span></span></div>';
+  document.getElementById('hintText').style.display='none';
+  document.getElementById('toolsSection').className='tools-section';
 
-  fetch(PROXY + '?question=' + encodeURIComponent(enriched) + '&system=' + encodeURIComponent(SYS))
-    .then(function(r){ return r.json(); })
-    .then(function(data) {
-      var text = (data.content && data.content[0] && data.content[0].text)
-        ? data.content[0].text
-        : (data.error ? '⚠️ ' + (data.error.message||'שגיאה') : 'לא התקבלה תשובה.');
-      badge.textContent = '✨ תשובה';
-      txt.textContent   = text;
-      copyBtn.className = 'ai-result-copy show';
-      copyBtn.onclick   = function() {
+  fetch(PROXY+'?question='+encodeURIComponent(enriched)+'&system='+encodeURIComponent(SYS))
+    .then(function(r){return r.json();})
+    .then(function(data){
+      var text=(data.content&&data.content[0]&&data.content[0].text)?data.content[0].text
+              :(data.error?'⚠️ '+(data.error.message||'שגיאה'):'לא התקבלה תשובה.');
+      badge.textContent='✨ תשובה';
+      txt.textContent=text;
+      copyBtn.className='ai-result-copy show';
+      copyBtn.onclick=function(){
         navigator.clipboard.writeText(text).then(function(){
-          copyBtn.textContent = '✓ הועתק!';
-          setTimeout(function(){ copyBtn.textContent = '📋 העתק תשובה'; }, 2000);
+          copyBtn.textContent='✓ הועתק!';
+          setTimeout(function(){copyBtn.textContent='📋 העתק תשובה';},2000);
         });
       };
-      result.scrollIntoView({behavior:'smooth', block:'nearest'});
+      result.scrollIntoView({behavior:'smooth',block:'nearest'});
     })
     .catch(function(){
-      badge.textContent = '⚠️ שגיאה';
-      txt.textContent   = 'לא ניתן להתחבר. בדקו אינטרנט ונסו שוב.';
+      badge.textContent='⚠️ שגיאה';
+      txt.textContent='לא ניתן להתחבר. בדקו אינטרנט ונסו שוב.';
     })
-    .finally(function(){
-      goBtn.disabled    = false;
-      goBtn.textContent = '🔍';
-    });
+    .finally(function(){ goBtn.disabled=false; goBtn.textContent='🔍'; });
 }
 
-function clearSearch() {
-  var inp = document.getElementById('searchInput');
-  inp.value = '';
-  document.getElementById('searchGo').disabled   = true;
-  document.getElementById('searchClear').className = 'search-clear';
-  document.getElementById('hintText').style.display  = 'block';
-  document.getElementById('chipsSection').className  = 'chips-section';
-  document.getElementById('aiResult').className      = 'ai-result';
-  closeTool();
-  inp.focus();
+function clearSearch(){
+  var inp=document.getElementById('searchInput');
+  inp.value=''; clearSug();
+  document.getElementById('searchGo').disabled=true;
+  document.getElementById('searchClear').className='search-clear';
+  document.getElementById('hintText').style.display='block';
+  document.getElementById('toolsSection').className='tools-section';
+  document.getElementById('aiResult').className='ai-result';
+  closeTool(); inp.focus();
 }
 
 /* ══ TOOL DETAIL ══ */
-function toggleTool(id) {
-  var panel = document.getElementById('detailPanel');
-  document.querySelectorAll('.chip').forEach(function(c){ c.classList.remove('active'); });
-  if (activeTool === id) { panel.classList.remove('open'); panel.innerHTML=''; activeTool=null; return; }
-  activeTool = id;
-  document.getElementById('chip-'+id).classList.add('active');
+function toggleTool(id){
+  var panel=document.getElementById('detailPanel');
+  document.querySelectorAll('.chip').forEach(function(c){c.classList.remove('active');});
+  if(activeTool===id){panel.classList.remove('open');panel.innerHTML='';activeTool=null;return;}
+  activeTool=id;
+  var chipEl=document.getElementById('chip-'+id);
+  if(chipEl) chipEl.classList.add('active');
 
-  var t   = tools.filter(function(x){ return x.id===id; })[0];
-  var tab = activeInnerTab[id] || 'steps';
+  var t=tools.filter(function(x){return x.id===id;})[0];
+  var tab=activeInnerTab[id]||'steps';
 
-  var sh = t.steps.map(function(s,i){ return '<li><span class="step-num">'+(i+1)+'</span><span>'+s+'</span></li>'; }).join('');
-  var fh = t.faqs.map(function(f,i){
+  var sh=t.steps.map(function(s,i){return '<li><span class="step-num">'+(i+1)+'</span><span>'+s+'</span></li>';}).join('');
+  var fh=t.faqs.map(function(f,i){
     return '<div class="faq-item"><button class="faq-q" onclick="toggleFaq(\''+id+'\','+i+',this)"><span>'+f.q+'</span><span class="faq-arrow">▼</span></button>'+
            '<div class="faq-a" id="faq-'+id+'-'+i+'">'+f.a+'</div></div>';
   }).join('');
 
-  panel.innerHTML =
+  var btnClass='open-btn'+(t.openBtnClass?' '+t.openBtnClass:'');
+  panel.innerHTML=
     '<div class="panel-header"><span class="panel-icon">'+t.icon+'</span><div><div class="panel-title">'+t.name+'</div><div class="panel-sub">'+t.tagline+'</div></div></div>'+
     '<div class="what-section"><span class="what-label">🤔 מה זה?</span>'+t.what+'</div>'+
     '<div class="inner-tabs">'+
@@ -641,33 +667,33 @@ function toggleTool(id) {
     '<div class="inner-section '+(tab==='steps'?'active':'')+'" id="inner-steps-'+id+'"><div class="steps-title">איך מתחילים:</div><ol class="steps-list">'+sh+'</ol></div>'+
     '<div class="inner-section '+(tab==='faq'?'active':'')+'"   id="inner-faq-'+id+'"><div class="faq-list">'+fh+'</div></div>'+
     '<div class="tip-box"><span class="tip-label">💡 טיפ: </span>'+t.tip+'</div>'+
-    '<a href="'+t.url+'" target="_blank" class="open-btn">פתחו את '+t.name+' עכשיו ←</a>';
+    '<a href="'+t.url+'" target="_blank" class="'+btnClass+'">פתחו את '+t.name+' עכשיו ←</a>';
 
   panel.classList.add('open');
-  setTimeout(function(){ panel.scrollIntoView({behavior:'smooth',block:'nearest'}); }, 60);
+  setTimeout(function(){panel.scrollIntoView({behavior:'smooth',block:'nearest'});},60);
 }
 
-function closeTool() {
-  var panel = document.getElementById('detailPanel');
+function closeTool(){
+  var panel=document.getElementById('detailPanel');
   panel.classList.remove('open'); panel.innerHTML='';
-  document.querySelectorAll('.chip').forEach(function(c){ c.classList.remove('active'); });
-  activeTool = null;
+  document.querySelectorAll('.chip').forEach(function(c){c.classList.remove('active');});
+  activeTool=null;
 }
 
-function switchInner(tid, tab, btn) {
-  activeInnerTab[tid] = tab;
-  btn.closest('.inner-tabs').querySelectorAll('.inner-tab').forEach(function(b){ b.classList.remove('active'); });
+function switchInner(tid,tab,btn){
+  activeInnerTab[tid]=tab;
+  btn.closest('.inner-tabs').querySelectorAll('.inner-tab').forEach(function(b){b.classList.remove('active');});
   btn.classList.add('active');
-  document.getElementById('inner-steps-'+tid).classList.toggle('active', tab==='steps');
-  document.getElementById('inner-faq-'+tid).classList.toggle('active',   tab==='faq');
+  document.getElementById('inner-steps-'+tid).classList.toggle('active',tab==='steps');
+  document.getElementById('inner-faq-'+tid).classList.toggle('active',tab==='faq');
 }
 
-function toggleFaq(tid, idx, btn) {
-  var ans = document.getElementById('faq-'+tid+'-'+idx);
-  var was = ans.classList.contains('open');
-  document.querySelectorAll('[id^="faq-'+tid+'-"]').forEach(function(a){ a.classList.remove('open'); });
-  document.querySelectorAll('.faq-q').forEach(function(q){ q.classList.remove('open'); });
-  if (!was) { ans.classList.add('open'); btn.classList.add('open'); }
+function toggleFaq(tid,idx,btn){
+  var ans=document.getElementById('faq-'+tid+'-'+idx);
+  var was=ans.classList.contains('open');
+  document.querySelectorAll('[id^="faq-'+tid+'-"]').forEach(function(a){a.classList.remove('open');});
+  document.querySelectorAll('.faq-q').forEach(function(q){q.classList.remove('open');});
+  if(!was){ans.classList.add('open');btn.classList.add('open');}
 }
 </script>
 </body>
