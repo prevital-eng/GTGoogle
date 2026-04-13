@@ -62,7 +62,7 @@ body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-h
 .search-clear.show{display:block;}
 .search-go{background:var(--accent);border:none;border-radius:12px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;flex-shrink:0;transition:background 0.15s;-webkit-tap-highlight-color:transparent;margin-right:2px;}
 .search-go:hover{background:#7dd3fc;}
-.search-go:disabled{background:var(--border);cursor:default;}
+.search-go:disabled{background:var(--border);cursor:default;} .search-go{cursor:pointer;}
 
 /* HINT */
 .search-hint-text{text-align:center;padding:16px 10px;color:var(--muted);font-size:14px;line-height:1.7;}
@@ -190,7 +190,7 @@ body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-h
         <input type="text" id="searchInput" placeholder='כתבו שאלה, או "כלים" לרשימה' autocomplete="off" autocorrect="off" spellcheck="false" style="position:relative;z-index:1;background:transparent;width:100%;">
       </div>
       <button class="search-clear" id="searchClear" onclick="clearSearch()">✕</button>
-      <button class="search-go" id="searchGo" onclick="runSearch()" disabled>🔍</button>
+      <button class="search-go" id="searchGo" onclick="runSearch()">🔍</button>
     </div>
     <div style="font-size:11px;color:var(--muted);text-align:center;margin:-8px 0 12px;">💡 Tab לקבלת הצעה · Enter לחיפוש</div>
 
@@ -541,18 +541,24 @@ window.addEventListener('DOMContentLoaded',function(){
   var goBtn=document.getElementById('searchGo');
   function onInput(){
     var v=inp.value;
-    goBtn.disabled=v.trim().length<1;
+    goBtn.disabled=false; if(!v.trim()) goBtn.disabled=true;
     document.getElementById('searchClear').className='search-clear'+(v.length?' show':'');
     if(!v.trim()){ document.getElementById('hintText').style.display='block'; clearSug(); return; }
     document.getElementById('hintText').style.display='none';
     clearTimeout(acTimer);
     acTimer=setTimeout(function(){ showSug(inp,getSug(v)); },120);
   }
-  inp.addEventListener('input',onInput);
-  inp.addEventListener('keyup',onInput);
+  // כל אירוע קלט אפשרי – נייד ודסקטופ
+  ['input','keyup','change','compositionend','paste'].forEach(function(ev){
+    inp.addEventListener(ev, onInput);
+  });
   inp.addEventListener('keydown',function(e){
     if((e.key==='Tab'||e.key==='ArrowLeft')&&lastSug){ e.preventDefault(); acceptSug(); return; }
-    if(e.key==='Enter'&&!goBtn.disabled) runSearch();
+    if(e.key==='Enter') runSearch();
+  });
+  // נייד: לחיצה על כפתור החיפוש תמיד תעבוד
+  document.getElementById('searchGo').addEventListener('click', function(){
+    if(document.getElementById('searchInput').value.trim()) runSearch();
   });
 });
 
@@ -561,6 +567,7 @@ function runSearch(){
   clearSug();
   var q=document.getElementById('searchInput').value.trim();
   if(!q) return;
+  clearSug();
 
   // כלים → רשימה
   if(isAllKW(q)){
