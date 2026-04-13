@@ -73,9 +73,9 @@ body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-h
 .tools-section.show{display:block;}
 
 /* CATEGORY LABEL */
-.cat-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin:14px 0 8px;padding-right:2px;}
+.cat-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin:8px 0 5px;padding-right:2px;}
 
-.chips-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px;}
+.chips-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:0;}
 .chip{background:var(--surface);border:1.5px solid var(--border);border-radius:14px;padding:11px 12px;cursor:pointer;transition:all 0.18s;display:flex;align-items:center;gap:10px;width:100%;text-align:right;direction:rtl;-webkit-tap-highlight-color:transparent;font-family:'Heebo',sans-serif;}
 .chip:active,.chip.active{border-color:var(--accent);background:var(--surface2);box-shadow:0 4px 16px rgba(56,189,248,0.15);}
 .chip-icon{font-size:1.3rem;flex-shrink:0;}
@@ -215,15 +215,8 @@ body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-h
 
     <!-- TOOLS LIST -->
     <div class="tools-section show" id="toolsSection">
-      <div class="cat-label">💬 תקשורת</div>
-      <div class="chips-grid" id="chipsComm"></div>
-      <div class="cat-label">📹 שיחות וידאו</div>
-      <div class="chips-grid" id="chipsVideo"></div>
-      <div class="cat-label">🖥️ השתלטות מרחוק</div>
-      <div class="chips-grid" id="chipsRemote"></div>
-      <div class="cat-label">🌐 גלישה ותוכן</div>
-      <div class="chips-grid" id="chipsBrowse"></div>
-      <div class="cat-label" style="color:var(--accent)">📦 כל כלי גוגל</div>
+      <div class="chips-grid" id="chipsAll"></div>
+      <div class="cat-label" style="color:var(--accent);margin-top:8px">📦 כל כלי גוגל</div>
       <div id="chipsGoogle"></div>
     </div>
 
@@ -386,24 +379,7 @@ var tools = [
       {q:'איך מסיימים שיחת Zoom?',a:'לחצו על הכפתור האדום "עזבו" (Leave) בפינה הימנית למטה ← בחרו "עזבו את הפגישה" (Leave Meeting). רק אתם יוצאים, השאר ממשיכים.'}
     ]
   },
-  { id:'googlemeet', cat:'video', icon:'📺', name:'Google Meet', tagline:'שיחות וידאו חינם', url:'https://meet.google.com',
-    install:{android:'https://play.google.com/store/apps/details?id=com.google.android.apps.meetings',iphone:'https://apps.apple.com/app/google-meet/id1013231476',pc:'https://meet.google.com'},
-    what:'Google Meet מאפשרת שיחות וידאו חינמיות ישירות מהדפדפן Chrome – ללא צורך בהתקנה.',
-    steps:[
-      'קיבלתם קישור Meet? לחצו עליו – יפתח דפדפן Chrome',
-      'יופיע מסך עם התמונה שלכם. הכניסו שם ← לחצו "בקשו להצטרף"',
-      'המארח יאשר את הכניסה ← אתם בשיחה!',
-      'ליצירת שיחה: עברו ל-meet.google.com ← לחצו "שיחה חדשה" ← העתיקו קישור ← שלחו לבני המשפחה',
-      'לסיום: לחצו על הטלפון האדום 📵 במרכז הסרגל התחתון'
-    ],
-    tip:'Chrome יבקש רשות למצלמה ומיקרופון – חייבים ללחוץ "אפשרו" אחרת לא יראו ולא ישמעו אתכם.',
-    faqs:[
-      {q:'לחצתי "חסמו" על המצלמה בטעות – מה עושים?',a:'לחצו על סמל המנעול 🔒 בשורת הכתובת (למעלה) ← לחצו על "מצלמה" ← שנו מ"חסמו" ל"אפשרו" ← רעננו את הדף (לחצו F5).'},
-      {q:'לא שומעים אותי?',a:'הסתכלו בתחתית המסך ← מצאו 🎤 ← אם יש עליו קו אדום: לחצו עליו. אם עדיין לא עוזר: הגדרות Windows ← פרטיות ← מיקרופון ← ודאו שמופעל.'},
-      {q:'המסך מפוצל – איך רואים רק אחד?',a:'לחצו על הפנים של מי שרוצים לראות ← יופיע סמל פין 📌 ← לחצו עליו. עכשיו יוצג גדול. ללחוץ שוב לביטול.'},
-      {q:'אין לי חשבון Google – אפשר להצטרף?',a:'כן! אפשר להצטרף כאורח. לחצו על הקישור ← הכניסו שם ← לחצו "בקשו להצטרף". רק ליצור שיחה צריך חשבון.'}
-    ]
-  },
+
 
   /* ── השתלטות מרחוק ── */
   { id:'anydesk', cat:'remote', icon:'🖥️', name:'AnyDesk', tagline:'עזרה מרחוק', url:'https://anydesk.com',
@@ -465,25 +441,8 @@ var tools = [
   },
 
   /* ── גלישה ותוכן ── */
-  { id:'youtube', cat:'browse', icon:'▶️', name:'YouTube', tagline:'סרטונים בחינם', url:'https://youtube.com',
-    install:{android:'https://play.google.com/store/apps/details?id=com.google.android.youtube',iphone:'https://apps.apple.com/app/youtube-watch-listen-stream/id544007664',pc:'https://youtube.com'},
-    what:'YouTube הוא אתר הסרטונים הגדול בעולם – חדשות, בישול, שירים, יוגה, שיעורים – הכל בחינם.',
-    steps:[
-      'פתחו Chrome ← הקלידו youtube.com בשורת הכתובת למעלה ← לחצו Enter',
-      'בראש העמוד יש שורת חיפוש 🔍 ← הקלידו מה שמחפשים (למשל: "שיר ארץ ישראל שלי")',
-      'לחצו Enter ← יופיעו תוצאות. לחצו על הסרטון הרצוי',
-      'הסרטון יתחיל לרוץ. בסרגל למטה: ⏸ להשהיה, ▶ להמשך',
-      'לגדול למסך מלא: לחצו על הריבוע ⛶ בפינה הימנית של הסרטון'
-    ],
-    tip:'הסרטון מהיר מדי? לחצו ⚙️ ← "מהירות הפעלה" ← בחרו 0.75 – ירוץ לאט יותר.',
-    faqs:[
-      {q:'איך מגדילים כתוביות?',a:'בזמן צפייה ← לחצו ⚙️ (הגדרות) בסרגל התחתון ← "כתוביות" ← "אפשרויות כתוביות" ← "גודל גופן" ← הגדילו עם הסרגל ← לחצו X לסגירה.'},
-      {q:'איך שומרים סרטון לצפייה מאוחר יותר?',a:'לחצו על שלוש הנקודות ⋮ מתחת לשם הסרטון (לא בזמן צפייה) ← "שמרו לצפייה מאוחרת יותר". תמצאו ב: ☰ תפריט ← "ספרייה".'},
-      {q:'איך מחפשים בעברית?',a:'YouTube מבין עברית מצוין. כתבו ישירות בעברית בשורת החיפוש. אפשר גם לדבר: לחצו 🎤 בשורת החיפוש ← אמרו מה מחפשים.'},
-      {q:'למה הסרטון נתקע?',a:'בעיית אינטרנט. נסו: 1. רעננו דף (F5) 2. בדקו שיש Wi-Fi 3. הורידו איכות סרטון: לחצו ⚙️ ← "איכות" ← בחרו 480p במקום 1080p.'}
-    ]
-  },
-  { id:'facebook', cat:'browse', icon:'👥', name:'Facebook', tagline:'רשת חברתית', url:'https://facebook.com', openBtnClass:'open-btn-fb',
+
+  { id:'facebook', cat:'comm', icon:'👥', name:'Facebook', tagline:'רשת חברתית', url:'https://facebook.com', openBtnClass:'open-btn-fb',
     install:{android:'https://play.google.com/store/apps/details?id=com.facebook.katana',iphone:'https://apps.apple.com/app/facebook/id284882215',pc:'https://facebook.com'},
     what:'Facebook היא הרשת החברתית הגדולה בעולם. מתחברים עם משפחה וחברים, מצטרפים לקבוצות ועוקבים אחר חדשות.',
     steps:[
@@ -523,42 +482,7 @@ var tools = [
       {q:'איך מורידים פוסט שלא אהבתי?',a:'לחצו על שלוש הנקודות ⋮ בפינה הימנית של הפוסט ← "הסתירו פוסט" – לא יופיע יותר. ← "הסתירו את כל הפוסטים מ-[שם]" – למי שמעצבן יותר.'}
     ]
   },
-  { id:'gmail', cat:'browse', icon:'✉️', name:'Gmail', tagline:'מיילים חינם', url:'https://mail.google.com',
-    install:{android:'https://play.google.com/store/apps/details?id=com.google.android.gm',iphone:'https://apps.apple.com/app/gmail-email-by-google/id422689480',pc:'https://mail.google.com'},
-    what:'Gmail היא תיבת דואר אלקטרוני חינמית של גוגל. שולחים ומקבלים הודעות לכל אחד בעולם.',
-    steps:[
-      'פתחו Chrome ← הקלידו gmail.com ← לחצו Enter',
-      'הכניסו כתובת Gmail (שמסתיימת ב-@gmail.com) וסיסמה ← לחצו "הבא"',
-      'תראו את תיבת הדואר הנכנס. לכתיבת מייל: לחצו על "+ כתיבה" בפינה הימנית למעלה',
-      'מלאו: לֹ (כתובת הנמען) ← נושא ← גוף ההודעה',
-      'לחצו "שלח" (הכפתור הכחול) ← המייל יגיע תוך שניות!'
-    ],
-    tip:'לצירוף קובץ או תמונה: בחלון הכתיבה ← לחצו על סמל המהדק 📎 למטה ← בחרו קובץ מהמחשב.',
-    faqs:[
-      {q:'איך מחפשים מייל ישן?',a:'בראש הדף יש שורת חיפוש ארוכה ← הקלידו שם השולח או מילה מהמייל ← לחצו 🔍 ← יופיעו כל המיילים הקשורים.'},
-      {q:'מייל חשוב הגיע לתיקיית ספאם?',a:'בסרגל השמאלי ← לחצו "ספאם" ← מצאו את המייל ← לחצו עליו ← לחצו "לא ספאם" (Not spam) ← יחזור לתיבה הראשית.'},
-      {q:'שכחתי סיסמה?',a:'בדף ההתחברות ← לחצו "שכחתי סיסמה" ← גוגל תשלח קוד לטלפון או מייל חלופי ← הכניסו קוד ← הגדירו סיסמה חדשה.'},
-      {q:'איך מגדירים חתימה אוטומטית?',a:'לחצו על ⚙️ (גלגל שיניים) בפינה הימנית למעלה ← "הצג את כל ההגדרות" ← גללו עד "חתימה" ← לחצו "צרו חתימה חדשה" ← כתבו שם ופרטי קשר ← לחצו "שמרו שינויים" למטה.'}
-    ]
-  },
-  { id:'maps', cat:'browse', icon:'🗺️', name:'Google Maps', tagline:'ניווט וכתובות', url:'https://maps.google.com',
-    install:{android:'https://play.google.com/store/apps/details?id=com.google.android.apps.maps',iphone:'https://apps.apple.com/app/google-maps-transit-food/id585027354',pc:'https://maps.google.com'},
-    what:'Google Maps מראה מפות ומנווטת מכל מקום לכל מקום – בחינם. עובד גם בטלפון וגם במחשב.',
-    steps:[
-      'פתחו Chrome ← הקלידו maps.google.com ← לחצו Enter (או פתחו אפליקציית Maps בטלפון)',
-      'בשורת החיפוש למעלה ← הקלידו כתובת יעד (למשל: "רחוב הרצל 10 תל אביב")',
-      'לחצו Enter ← יופיע הסיכה 📍 על המפה ← לחצו על הכפתור הכחול "ניווט" (Directions)',
-      'בחרו אמצעי תחבורה: 🚗 רכב / 🚌 אוטובוס / 🚶 הליכה ← לחצו "התחילו"',
-      'הניווט מתחיל! עקבו אחר ההוראות הקוליות. לסיום: לחצו X למטה ← "סיימו ניווט"'
-    ],
-    tip:'לפני נסיעה: לחצו "תצוגת רחוב" 🧍 לראות איך המקום נראה במציאות – עוזר למצוא חנייה.',
-    faqs:[
-      {q:'איך שומרים כתובת הבית?',a:'חפשו את כתובת הבית ← לחצו על הסיכה ← לחצו "שמרו" (Save) ← בחרו "בית" (Home) ← לחצו "שמרו". מעכשיו לחצו "בית" בחיפוש ותגיעו מיד.'},
-      {q:'איך בודקים זמן הגעה מראש?',a:'חפשו יעד ← לחצו "ניווט" ← לחצו על שעת ההגעה למעלה ← שנו ל"יציאה בשעה" ← הכניסו שעת יציאה ← Maps יראה פקקים צפויים.'},
-      {q:'הניווט מוביל למקום הלא נכון?',a:'לחצו X לעצירת ניווט ← חפשו שוב עם כתובת מדויקת יותר (כלול עיר). אם מסעדה/חנות – חפשו לפי שם העסק ולא כתובת.'},
-      {q:'איך מורידים מפה לשימוש ללא אינטרנט?',a:'חפשו שם עיר ← לחצו על שם העיר בתחתית המסך ← לחצו "הורידו" (Download) ← המתינו ← המפה נשמרת לשימוש ללא Wi-Fi.'}
-    ]
-  }
+
 ];
 
 /* כלי גוגל – קישור לאפליקציה */
@@ -652,10 +576,9 @@ window.addEventListener('DOMContentLoaded', function() {
       '<span class="chip-icon">'+t.icon+'</span>'+
       '<span class="chip-texts"><span class="chip-name">'+t.name+'</span><span class="chip-tag">'+t.tagline+'</span></span>'+
       '</button>';
-  }  document.getElementById('chipsComm').innerHTML   = cats.comm.map(chipHTML).join('');
-  document.getElementById('chipsVideo').innerHTML  = cats.video.map(chipHTML).join('');
-  document.getElementById('chipsRemote').innerHTML = cats.remote.map(chipHTML).join('');
-  document.getElementById('chipsBrowse').innerHTML = cats.browse.map(chipHTML).join('');
+  }  var order = ['whatsapp','telegram','facebook','zoom','anydesk','teamviewer'];
+  var sorted = order.map(function(id){ return tools.filter(function(t){return t.id===id;})[0]; }).filter(Boolean);
+  document.getElementById('chipsAll').innerHTML = sorted.map(chipHTML).join('');
   document.getElementById('chipsGoogle').innerHTML =
     '<button class="chip chip-google" style="grid-column:1/-1;border:none;cursor:pointer;" onclick="window.open(&apos;'+googleLink.url+'&apos;,&apos;_blank&apos;)">'+
     '<span class="chip-icon">'+googleLink.icon+'</span>'+
