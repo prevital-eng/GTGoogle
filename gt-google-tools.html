@@ -21,7 +21,7 @@
   --wa:#25d366; --yellow:#fbbf24;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+body{font-family:'Heebo',sans-serif;background:#0f172a !important;color:#f1f5f9 !important;min-height:100vh;}
 .page-wrap{display:flex;min-height:100vh;}
 .sidebar{display:none;}
 .app{width:100%;max-width:520px;min-height:100vh;display:flex;flex-direction:column;margin:0 auto;}
@@ -124,7 +124,7 @@ body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-h
 .hidden{display:none!important;}
 </style>
 </head>
-<body>
+<body class="gt-dark">
 <div class="page-wrap">
 
 <div class="sidebar">
@@ -144,6 +144,7 @@ body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-h
   <!-- HEADER — מקורי + מקום ללוגו מט"ב -->
   <div class="header">
     <button class="copy-link" onclick="document.getElementById('about-modal').classList.remove('hidden')">© Revital Peled 2026</button>
+    <a href="./gimlatech-home.html" style="position:absolute;top:22px;right:16px;font-size:11px;color:var(--accent);font-weight:600;text-decoration:none;">🏠 דף הבית</a>
     <div class="logo-row">
       <img src="https://prevital-eng.github.io/GT-GDSH/logo.png"
            style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid #38bdf8"
@@ -230,6 +231,7 @@ body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-h
 var APP_CONFIG = {
   appName: 'כלי גוגל',
   appSubtitle: 'מדריך + עוזר AI בכל שפה',
+  darkTheme: true,
   // matbLogoUrl: '', // יש להסיר הערה כשיתקבל אישור מט"ב
 };
 
