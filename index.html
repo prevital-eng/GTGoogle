@@ -15,149 +15,149 @@
 <script src="https://prevital-eng.github.io/gimlatech-core/gimlatech-core.js"></script>
 <style>
 :root {
-  --bg:#0f172a; --surface:#1e293b; --surface2:#273549;
-  --accent:#38bdf8; --accent2:#818cf8;
-  --text:#f1f5f9; --muted:#94a3b8; --border:#334155;
+  --bg:      #bfdbee; --surface: #cde8f5; --surface2:#b8d9ec;
+  --accent:  #0284c7; --accent2: #6366f1;
+  --text:    #0c1f4a; --muted:   #1a3a6e; --border:  #7dd3fc;
   --wa:#25d366; --yellow:#fbbf24;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Heebo',sans-serif;background:#0f172a !important;color:#f1f5f9 !important;min-height:100vh;}
 
-.page-wrap{display:flex;min-height:100vh;}
+.page-wrap{display:flex;min-height:100vh;background:#bfdbee;}
 .sidebar{display:none;}
 .app{width:100%;max-width:520px;min-height:100vh;display:flex;flex-direction:column;margin:0 auto;}
 
 @media(min-width:900px){
   body{background:#070f1d;}
   .page-wrap{align-items:stretch;justify-content:center;}
-  .sidebar{display:flex;flex-direction:column;justify-content:center;width:340px;flex-shrink:0;padding:48px 40px;background:linear-gradient(160deg,#0f1e35 0%,#0a1628 100%);border-left:1px solid #1e3a5f;}
+  .sidebar{display:flex;flex-direction:column;justify-content:center;width:340px;flex-shrink:0;padding:48px 40px;background:linear-gradient(160deg,#a8d4e8 0%,#8ec9e0 100%);}
   .sidebar-logo{font-size:32px;font-weight:900;margin-bottom:8px;}
-  .sidebar-logo span{color:var(--accent);}
-  .sidebar-tag{display:inline-block;background:rgba(56,189,248,0.12);border:1px solid rgba(56,189,248,0.3);color:var(--accent);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:28px;}
-  .sidebar-desc{font-size:15px;color:#94a3b8;line-height:1.8;margin-bottom:32px;}
+  .sidebar-logo span{color:#0284c7;}
+  .sidebar-tag{display:inline-block;background:rgba(56,189,248,0.12);border:1px solid rgba(56,189,248,0.3);color:#0284c7;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:28px;}
+  .sidebar-desc{font-size:15px;color:#1a3a6e;line-height:1.8;margin-bottom:32px;}
   .sidebar-steps{display:flex;flex-direction:column;gap:14px;}
   .sidebar-step{display:flex;align-items:center;gap:12px;}
-  .sidebar-step-num{width:28px;height:28px;border-radius:50%;background:rgba(56,189,248,0.15);border:1.5px solid rgba(56,189,248,0.4);color:var(--accent);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-  .sidebar-step-text{font-size:13px;color:#64748b;}
-  .app{max-width:480px;flex-shrink:0;border-right:1px solid #1e293b;border-left:1px solid #1e293b;background:var(--bg);}
+  .sidebar-step-num{width:28px;height:28px;border-radius:50%;background:rgba(56,189,248,0.15);border:1.5px solid rgba(56,189,248,0.4);color:#0284c7;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .sidebar-step-text{font-size:13px;color:#1a3a6e;}
+  .app{max-width:480px;flex-shrink:0;background:#bfdbee;}
 }
 
 /* HEADER */
-.header{padding:22px 18px 0;background:linear-gradient(180deg,#0f172a 0%,transparent 100%);position:sticky;top:0;z-index:10;backdrop-filter:blur(12px);text-align:center;}
+.header{padding:22px 18px 0;background:linear-gradient(180deg,#bfdbee 0%,transparent 100%);position:sticky;top:0;z-index:10;backdrop-filter:blur(12px);text-align:center;}
 .logo-row{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:10px;}
-.logo-text{font-size:22px;font-weight:900;letter-spacing:-0.5px;}
-.logo-text span{color:var(--accent);}
-.page-title{font-size:26px;font-weight:900;color:var(--text);letter-spacing:-0.5px;margin-bottom:4px;}
-.page-sub{font-size:13px;color:var(--muted);padding-bottom:14px;}
-.copy-link{position:absolute;top:22px;left:16px;font-size:10px;color:#1e3a5f;font-weight:500;cursor:pointer;background:none;border:none;font-family:'Heebo',sans-serif;}
+.logo-text{font-size:22px;font-weight:900;letter-spacing:-0.5px;color:#0c2461;}
+.logo-text span{color:#0c2461;}
+.page-title{font-size:26px;font-weight:900;color:#0c1f4a;letter-spacing:-0.5px;margin-bottom:4px;}
+.page-sub{font-size:13px;color:#1a3a6e;padding-bottom:14px;}
+.copy-link{position:absolute;top:22px;left:16px;font-size:10px;color:#0c1f4a;font-weight:500;cursor:pointer;background:none;border:none;font-family:'Heebo',sans-serif;}
 
 /* BODY */
 .body{flex:1;padding:14px 16px 100px;}
 
 /* SEARCH */
-.search-wrap{background:var(--surface);border:2px solid var(--border);border-radius:18px;display:flex;align-items:center;padding:0 6px 0 14px;margin-bottom:16px;transition:border-color 0.2s;box-shadow:0 4px 20px rgba(0,0,0,0.2);}
-.search-wrap:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px rgba(56,189,248,0.12);}
-.search-wrap input{flex:1;background:none;border:none;outline:none;font-size:16px;font-family:'Heebo',sans-serif;color:var(--text);padding:14px 4px;direction:rtl;-webkit-appearance:none;min-width:0;}
-.search-wrap input::placeholder{color:var(--muted);}
-.search-clear{background:none;border:none;color:var(--muted);font-size:17px;cursor:pointer;padding:6px;line-height:1;flex-shrink:0;display:none;-webkit-tap-highlight-color:transparent;}
+.search-wrap{background:#cde8f5;border:2px solid #7dd3fc;border-radius:18px;display:flex;align-items:center;padding:0 6px 0 14px;margin-bottom:16px;transition:border-color 0.2s;box-shadow:0 4px 20px rgba(2,132,199,0.1);}
+.search-wrap:focus-within{border-color:#0284c7;box-shadow:0 0 0 3px rgba(56,189,248,0.12);}
+.search-wrap input{flex:1;background:none;border:none;outline:none;font-size:16px;font-family:'Heebo',sans-serif;color:#0c1f4a;padding:14px 4px;direction:rtl;-webkit-appearance:none;min-width:0;}
+.search-wrap input::placeholder{color:#1a3a6e;}
+.search-clear{background:none;border:none;color:#1a3a6e;font-size:17px;cursor:pointer;padding:6px;line-height:1;flex-shrink:0;display:none;-webkit-tap-highlight-color:transparent;}
 
-.search-go{background:var(--accent);border:none;border-radius:12px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;flex-shrink:0;transition:background 0.15s;-webkit-tap-highlight-color:transparent;margin-right:2px;}
+.search-go{background:#0284c7;border:none;border-radius:12px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;flex-shrink:0;transition:background 0.15s;-webkit-tap-highlight-color:transparent;margin-right:2px;}
 .search-go:hover{background:#7dd3fc;}
-.search-go:disabled{background:var(--border);cursor:default;} .search-go{cursor:pointer;}
+.search-go:disabled{background:#7dd3fc;cursor:default;} .search-go{cursor:pointer;}
 
 /* HINT */
-.search-hint-text{text-align:center;padding:16px 10px;color:var(--muted);font-size:14px;line-height:1.7;}
-.search-hint-text strong{color:var(--accent);}
+.search-hint-text{text-align:center;padding:16px 10px;color:#1a3a6e;font-size:14px;line-height:1.7;}
+.search-hint-text strong{color:#0284c7;}
 
 /* TOOLS GRID */
 .tools-section{display:none;animation:fadeUp 0.2s ease;}
 .tools-section.show{display:block;}
 
 /* CATEGORY LABEL */
-.cat-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin:8px 0 5px;padding-right:2px;}
+.cat-label{font-size:11px;font-weight:700;color:#1a3a6e;text-transform:uppercase;letter-spacing:0.5px;margin:8px 0 5px;padding-right:2px;}
 
 .chips-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:0;}
-.chip{background:var(--surface);border:1.5px solid var(--border);border-radius:14px;padding:11px 12px;cursor:pointer;transition:all 0.18s;display:flex;align-items:center;gap:10px;width:100%;text-align:right;direction:rtl;-webkit-tap-highlight-color:transparent;font-family:'Heebo',sans-serif;}
-.chip:active,.chip.active{border-color:var(--accent);background:var(--surface2);box-shadow:0 4px 16px rgba(56,189,248,0.15);}
+.chip{background:#cde8f5;border:1.5px solid #7dd3fc;border-radius:14px;padding:11px 12px;cursor:pointer;transition:all 0.18s;display:flex;align-items:center;gap:10px;width:100%;text-align:right;direction:rtl;-webkit-tap-highlight-color:transparent;font-family:'Heebo',sans-serif;}
+.chip:active,.chip.active{border-color:#0284c7;background:#b8d9ec;box-shadow:0 4px 16px rgba(56,189,248,0.15);}
 .chip-icon{font-size:1.3rem;flex-shrink:0;}
 .chip-texts{display:flex;flex-direction:column;flex:1;}
-.chip-name{font-size:13px;font-weight:700;color:var(--text);}
-.chip-tag{font-size:11px;color:var(--muted);}
+.chip-name{font-size:13px;font-weight:700;color:#0c1f4a;}
+.chip-tag{font-size:11px;color:#1a3a6e;}
 
 /* Google link chip – special style */
 .chip-google{background:linear-gradient(135deg,rgba(56,189,248,0.08) 0%,rgba(129,140,248,0.08) 100%);border-color:rgba(56,189,248,0.3);}
-.chip-google .chip-name{color:var(--accent);}
+.chip-google .chip-name{color:#0284c7;}
 
 /* AI RESULT */
 .ai-result{background:linear-gradient(135deg,#0c2340 0%,#1a1040 100%);border:1.5px solid rgba(56,189,248,0.3);border-radius:16px;padding:16px;margin-bottom:14px;display:none;animation:fadeUp 0.22s ease;position:relative;overflow:hidden;}
 .ai-result::before{content:'';position:absolute;top:0;right:0;width:120px;height:120px;background:radial-gradient(circle,rgba(56,189,248,0.1) 0%,transparent 70%);pointer-events:none;}
 .ai-result.show{display:block;}
-.ai-result-badge{background:var(--accent);color:#0f172a;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:10px;}
-.ai-result-text{font-size:14px;line-height:1.75;color:#cbd5e1;white-space:pre-wrap;}
-.ai-result-copy{width:100%;margin-top:12px;padding:10px;border-radius:12px;background:var(--surface);border:1.5px solid var(--border);color:var(--muted);font-size:13px;font-weight:700;cursor:pointer;font-family:'Heebo',sans-serif;display:none;}
+.ai-result-badge{background:#0284c7;color:#0f172a;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:10px;}
+.ai-result-text{font-size:14px;line-height:1.75;color:#0c1f4a;white-space:pre-wrap;}
+.ai-result-copy{width:100%;margin-top:12px;padding:10px;border-radius:12px;background:#cde8f5;border:1.5px solid #7dd3fc;color:#1a3a6e;font-size:13px;font-weight:700;cursor:pointer;font-family:'Heebo',sans-serif;display:none;}
 .ai-result-copy.show{display:block;}
 
 /* DETAIL PANEL */
 .detail-panel{display:none;margin:8px 0 0;background:linear-gradient(135deg,#0c2340 0%,#1a1040 100%);border:1.5px solid rgba(129,140,248,0.35);border-radius:16px;overflow:hidden;animation:fadeUp 0.22s ease;position:relative;}
 .detail-panel::before{content:'';position:absolute;top:0;right:0;width:130px;height:130px;background:radial-gradient(circle,rgba(129,140,248,0.12) 0%,transparent 70%);pointer-events:none;}
 .detail-panel.open{display:block;}
-.panel-header{padding:14px 16px 11px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border);}
+.panel-header{padding:14px 16px 11px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #7dd3fc;}
 .panel-icon{font-size:1.8rem;}
-.panel-title{font-size:17px;font-weight:900;color:var(--accent);}
-.panel-sub{font-size:11px;color:var(--muted);}
-.what-section{background:rgba(56,189,248,0.06);border-right:3px solid var(--accent);margin:12px 14px 0;border-radius:10px;padding:11px 13px;font-size:13px;line-height:1.7;color:#cbd5e1;}
-.what-label{font-weight:700;color:var(--accent);font-size:11px;margin-bottom:4px;display:block;}
-.inner-tabs{display:flex;margin:12px 14px 0;border-radius:10px;overflow:hidden;background:var(--surface);border:1px solid var(--border);}
-.inner-tab{flex:1;padding:9px 6px;background:transparent;border:none;font-family:'Heebo',sans-serif;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;transition:all 0.15s;border-left:1px solid var(--border);}
+.panel-title{font-size:17px;font-weight:900;color:#0284c7;}
+.panel-sub{font-size:11px;color:#1a3a6e;}
+.what-section{background:rgba(56,189,248,0.06);border-right:3px solid #0284c7;margin:12px 14px 0;border-radius:10px;padding:11px 13px;font-size:13px;line-height:1.7;color:#0c1f4a;}
+.what-label{font-weight:700;color:#0284c7;font-size:11px;margin-bottom:4px;display:block;}
+.inner-tabs{display:flex;margin:12px 14px 0;border-radius:10px;overflow:hidden;background:#cde8f5;border:1px solid #7dd3fc;}
+.inner-tab{flex:1;padding:9px 6px;background:transparent;border:none;font-family:'Heebo',sans-serif;font-size:12px;font-weight:700;color:#1a3a6e;cursor:pointer;transition:all 0.15s;border-left:1px solid #7dd3fc;}
 .inner-tab:last-child{border-left:none;}
-.inner-tab.active{background:var(--accent2);color:white;}
+.inner-tab.active{background:#6366f1;color:white;}
 .inner-section{display:none;}
 .inner-section.active{display:block;}
-.steps-title{font-size:12px;font-weight:700;color:var(--muted);padding:11px 16px 5px;text-transform:uppercase;letter-spacing:0.5px;}
+.steps-title{font-size:12px;font-weight:700;color:#1a3a6e;padding:11px 16px 5px;text-transform:uppercase;letter-spacing:0.5px;}
 .steps-list{padding:0 14px 4px;list-style:none;}
-.steps-list li{display:flex;gap:11px;align-items:flex-start;padding:9px 12px;margin-bottom:7px;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:12px;font-size:13px;line-height:1.6;color:#cbd5e1;}
-.step-num{min-width:24px;height:24px;background:var(--accent2);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;flex-shrink:0;margin-top:2px;}
+.steps-list li{display:flex;gap:11px;align-items:flex-start;padding:9px 12px;margin-bottom:7px;background:rgba(255,255,255,0.04);border:1px solid #7dd3fc;border-radius:12px;font-size:13px;line-height:1.6;color:#0c1f4a;}
+.step-num{min-width:24px;height:24px;background:#6366f1;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;flex-shrink:0;margin-top:2px;}
 .faq-list{padding:8px 14px 4px;}
-.faq-item{margin-bottom:7px;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
-.faq-q{width:100%;text-align:right;background:rgba(255,255,255,0.04);border:none;padding:11px 13px;font-family:'Heebo',sans-serif;font-size:13px;font-weight:700;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:8px;-webkit-tap-highlight-color:transparent;}
-.faq-arrow{font-size:10px;color:var(--muted);transition:transform 0.2s;flex-shrink:0;}
+.faq-item{margin-bottom:7px;border:1px solid #7dd3fc;border-radius:12px;overflow:hidden;}
+.faq-q{width:100%;text-align:right;background:rgba(255,255,255,0.04);border:none;padding:11px 13px;font-family:'Heebo',sans-serif;font-size:13px;font-weight:700;color:#0c1f4a;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:8px;-webkit-tap-highlight-color:transparent;}
+.faq-arrow{font-size:10px;color:#1a3a6e;transition:transform 0.2s;flex-shrink:0;}
 .faq-q.open .faq-arrow{transform:rotate(180deg);}
-.faq-a{display:none;padding:10px 13px 12px;font-size:13px;line-height:1.65;color:#94a3b8;border-top:1px solid var(--border);background:rgba(0,0,0,0.15);}
+.faq-a{display:none;padding:10px 13px 12px;font-size:13px;line-height:1.65;color:#1a3a6e;border-top:1px solid #7dd3fc;background:rgba(0,0,0,0.15);}
 .faq-a.open{display:block;}
-.tip-box{background:rgba(251,191,36,0.08);border-right:3px solid var(--yellow);border-radius:10px;padding:10px 13px;margin:10px 14px 12px;font-size:13px;color:#fde68a;line-height:1.6;}
+.tip-box{background:rgba(251,191,36,0.08);border-right:3px solid var(--yellow);border-radius:10px;padding:10px 13px;margin:10px 14px 12px;font-size:13px;color:#92400e;line-height:1.6;}
 .tip-label{font-weight:700;}
-.open-btn{display:block;margin:0 14px 16px;background:var(--accent);color:#0f172a;border:none;border-radius:12px;padding:12px;font-size:14px;font-weight:900;font-family:'Heebo',sans-serif;cursor:pointer;text-align:center;text-decoration:none;}
+.open-btn{display:block;margin:0 14px 16px;background:#0284c7;color:#0f172a;border:none;border-radius:12px;padding:12px;font-size:14px;font-weight:900;font-family:'Heebo',sans-serif;cursor:pointer;text-align:center;text-decoration:none;}
 .open-btn-wa{background:var(--wa);}
 .open-btn-zoom{background:#2d8cff;}
 .open-btn-fb{background:#1877f2;}
 
 /* DEVICE SELECTOR */
 .device-sel{display:flex;gap:8px;margin:12px 14px 0;}
-.dev-btn{flex:1;padding:10px 8px;border-radius:12px;border:2px solid var(--border);background:var(--surface);font-family:'Heebo',sans-serif;font-size:13px;font-weight:700;color:var(--muted);cursor:pointer;transition:all 0.15s;-webkit-tap-highlight-color:transparent;}
-.dev-btn.active{border-color:var(--accent);background:var(--surface2);color:var(--accent);}
+.dev-btn{flex:1;padding:10px 8px;border-radius:12px;border:2px solid #7dd3fc;background:#cde8f5;font-family:'Heebo',sans-serif;font-size:13px;font-weight:700;color:#1a3a6e;cursor:pointer;transition:all 0.15s;-webkit-tap-highlight-color:transparent;}
+.dev-btn.active{border-color:#0284c7;background:#b8d9ec;color:#0284c7;}
 .dev-btn.pc-btn{font-size:12px;}
-.dev-intro{font-size:12px;color:var(--muted);text-align:center;padding:8px 14px 0;}
+.dev-intro{font-size:12px;color:#1a3a6e;text-align:center;padding:8px 14px 0;}
 
 /* INSTALL BUTTONS */
 .install-row{display:flex;gap:8px;margin:0 14px 6px;flex-wrap:wrap;}
-.install-btn{flex:1;min-width:120px;display:flex;align-items:center;justify-content:center;gap:6px;padding:9px 10px;border-radius:11px;border:1.5px solid var(--border);background:var(--surface);color:var(--muted);font-family:'Heebo',sans-serif;font-size:12px;font-weight:700;text-decoration:none;transition:all 0.15s;-webkit-tap-highlight-color:transparent;}
-.install-btn:hover{border-color:var(--accent);color:var(--accent);}
+.install-btn{flex:1;min-width:120px;display:flex;align-items:center;justify-content:center;gap:6px;padding:9px 10px;border-radius:11px;border:1.5px solid #7dd3fc;background:#cde8f5;color:#1a3a6e;font-family:'Heebo',sans-serif;font-size:12px;font-weight:700;text-decoration:none;transition:all 0.15s;-webkit-tap-highlight-color:transparent;}
+.install-btn:hover{border-color:#0284c7;color:#0284c7;}
 .install-btn.google{border-color:rgba(52,168,83,0.4);color:#34a853;}
 .install-btn.apple{border-color:rgba(255,255,255,0.2);color:#f1f5f9;}
-.install-btn.web{border-color:rgba(56,189,248,0.3);color:var(--accent);}
-.install-label{font-size:11px;color:var(--muted);padding:4px 14px 2px;font-weight:700;text-transform:uppercase;letter-spacing:0.4px;}
+.install-btn.web{border-color:rgba(56,189,248,0.3);color:#0284c7;}
+.install-label{font-size:11px;color:#1a3a6e;padding:4px 14px 2px;font-weight:700;text-transform:uppercase;letter-spacing:0.4px;}
 
 /* LOADING */
 .ai-loading{display:flex;gap:6px;align-items:center;padding:4px 0;}
-.ai-loading span{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:bounce 1.2s infinite;}
+.ai-loading span{width:8px;height:8px;border-radius:50%;background:#0284c7;animation:bounce 1.2s infinite;}
 .ai-loading span:nth-child(2){animation-delay:0.2s;}
 .ai-loading span:nth-child(3){animation-delay:0.4s;}
 @keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-6px)}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
 .footer-copy{text-align:center;padding:8px 18px 5px;border-top:1px solid #1e293b;}
-.footer-copy button{background:none;border:none;color:#334155;font-size:11px;cursor:pointer;font-family:'Heebo',sans-serif;}
-.footer-rights{background:#0c1a2e;border-top:1px solid #1e3a5f;padding:7px 18px;text-align:center;font-size:11px;color:var(--accent);letter-spacing:0.3px;}
+.footer-copy button{background:none;border:none;color:#0c1f4a;font-size:11px;cursor:pointer;font-family:'Heebo',sans-serif;}
+.footer-rights{background:#bfdbee;border-top:1px solid #1e3a5f;padding:7px 18px;text-align:center;font-size:11px;color:#0284c7;letter-spacing:0.3px;}
 
 /* התאמת כותרת התבנית לעיצוב הכהה */
 #gt-header.header {
@@ -200,10 +200,10 @@ body{font-family:'Heebo',sans-serif;background:#0f172a !important;color:#f1f5f9 
 }
 #gt-footer .gt-footer a { color: #38bdf8; }
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:flex;align-items:flex-end;justify-content:center;z-index:100;backdrop-filter:blur(4px);}
-.modal-box{background:var(--surface);border-radius:20px 20px 0 0;padding:24px 20px 32px;width:100%;max-width:520px;border-top:1px solid var(--border);max-height:85vh;overflow-y:auto;}
+.modal-box{background:#cde8f5;border-radius:20px 20px 0 0;padding:24px 20px 32px;width:100%;max-width:520px;border-top:1px solid #7dd3fc;max-height:85vh;overflow-y:auto;}
 .modal-title{font-size:17px;font-weight:900;margin-bottom:6px;}
-.modal-sub{font-size:13px;color:var(--muted);margin-bottom:18px;}
-.modal-cancel{width:100%;padding:11px;border-radius:12px;background:none;border:1.5px solid var(--border);color:var(--muted);font-size:14px;cursor:pointer;font-family:'Heebo',sans-serif;margin-top:10px;}
+.modal-sub{font-size:13px;color:#1a3a6e;margin-bottom:18px;}
+.modal-cancel{width:100%;padding:11px;border-radius:12px;background:none;border:1.5px solid #7dd3fc;color:#1a3a6e;font-size:14px;cursor:pointer;font-family:'Heebo',sans-serif;margin-top:10px;}
 .hidden{display:none!important;}
 </style>
 </head>
@@ -211,7 +211,7 @@ body{font-family:'Heebo',sans-serif;background:#0f172a !important;color:#f1f5f9 
 <div class="page-wrap">
 
 <div class="sidebar">
-  <div class="sidebar-logo">Gimla<span>Tech</span></div>
+  <div class="sidebar-logo">GimlaTech</div>
   <div class="sidebar-tag">📱 כלים דיגיטליים לוותיקים</div>
   <div class="sidebar-desc">מדריך פשוט לכלים הדיגיטליים הנפוצים ביותר – WhatsApp, Zoom, AnyDesk ועוד.</div>
   <div class="sidebar-steps">
@@ -219,23 +219,23 @@ body{font-family:'Heebo',sans-serif;background:#0f172a !important;color:#f1f5f9 
     <div class="sidebar-step"><div class="sidebar-step-num">2</div><div class="sidebar-step-text">או בחרו כלי מהרשימה</div></div>
     <div class="sidebar-step"><div class="sidebar-step-num">3</div><div class="sidebar-step-text">קבלו מדריך + עזרת AI</div></div>
   </div>
-  <div style="margin-top:auto;padding-top:40px;font-size:11px;color:#334155;line-height:1.7">© 2026 רויטל פלד<br><span style="color:#1e3a5f">נבנה בסיוע Claude AI</span></div>
+  <div style="margin-top:auto;padding-top:40px;font-size:11px;color:#0c1f4a;line-height:1.7">© 2026 רויטל פלד<br><span style="color:#0c1f4a">נבנה בסיוע Claude AI</span></div>
 </div>
 
 <div class="app">
   <div class="header">
     <button class="copy-link" onclick="document.getElementById('about-modal').classList.remove('hidden')">© Revital Peled 2026</button>
-    <a href="https://prevital-eng.github.io/GTA/" style="position:absolute;top:22px;right:16px;font-size:11px;color:var(--accent);font-weight:600;text-decoration:none;">🏠 דף הבית</a>
-    <a href="https://prevital-eng.github.io/GTDH/gimlatech-home.html" style="position:absolute;top:22px;right:16px;font-size:11px;color:var(--accent);font-weight:600;text-decoration:none;">🏠 דף הבית</a>
+    <a href="https://prevital-eng.github.io/GTA/" style="position:absolute;top:22px;right:16px;font-size:11px;color:#0284c7;font-weight:600;text-decoration:none;">🏠 דף הבית</a>
+    <a href="https://prevital-eng.github.io/GTDH/gimlatech-home.html" style="position:absolute;top:22px;right:16px;font-size:11px;color:#0284c7;font-weight:600;text-decoration:none;">🏠 דף הבית</a>
     <div class="logo-row">
       <img src="https://prevital-eng.github.io/GT-GDSH/logo.png" style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid #38bdf8" alt="GimlaTech" onerror="this.style.display='none'">
-      <div class="logo-text">Gimla<span>Tech</span></div>
+      <div class="logo-text">GimlaTech</div>
       <!-- לוגו מט"ב — יוצג כשיתקבל אישור -->
       <img id="matb-logo" src="" alt='מט"ב' style="display:none;height:38px;border-right:2px solid rgba(56,189,248,0.3);padding-right:10px;margin-right:4px">
     </div>
-    <div class="page-title">כלים דיגיטליים</div>
+    <div class="page-title" style="font-size:20px;font-weight:900;color:#0c2461;">📲 מסייע אפליקציות</div>
     <div class="page-sub">מדריך + עוזר AI בכל שפה</div>
-    <div style="font-size:13px;color:#1e3a5f;background:#e0f2fe;border:1px solid #38bdf8;border-radius:8px;padding:5px 10px;margin-top:6px;text-align:center;font-weight:700;">
+    <div style="font-size:13px;color:#1e3a5f;background:#bfdbee;border:1px solid #7dd3fc;border-radius:8px;padding:5px 10px;margin-top:6px;text-align:center;font-weight:700;">
       🔒 אפליקציה זו מיועדת לשימוש מתנדבי גימלאטק בלבד
     </div>
   </div>
@@ -251,7 +251,7 @@ body{font-family:'Heebo',sans-serif;background:#0f172a !important;color:#f1f5f9 
       <button class="search-clear" id="searchClear" >✕</button>
       <button class="search-go" id="searchGo" >🔍</button>
     </div>
-    <div style="font-size:11px;color:var(--muted);text-align:center;margin:-8px 0 12px;">💡 Tab לקבלת הצעה · Enter לחיפוש</div>
+    <div style="font-size:11px;color:#1a3a6e;text-align:center;margin:-8px 0 12px;">💡 Tab לקבלת הצעה · Enter לחיפוש</div>
 
     <!-- HINT -->
     <div class="search-hint-text" id="hintText" style="display:none"></div>
@@ -259,7 +259,7 @@ body{font-family:'Heebo',sans-serif;background:#0f172a !important;color:#f1f5f9 
     <!-- TOOLS LIST -->
     <div class="tools-section show" id="toolsSection">
       <div class="chips-grid" id="chipsAll"></div>
-      <div class="cat-label" style="color:var(--accent);margin-top:8px">📦 כל כלי גוגל</div>
+      <div class="cat-label" style="color:#0284c7;margin-top:8px">📦 כל כלי גוגל</div>
       <div id="chipsGoogle"></div>
     </div>
 
@@ -268,7 +268,7 @@ body{font-family:'Heebo',sans-serif;background:#0f172a !important;color:#f1f5f9 
       <div class="ai-result-badge" id="aiBadge">✨ תשובה</div>
       <div class="ai-result-text" id="aiResultText"></div>
       <button class="ai-result-copy" id="aiResultCopy">📋 העתק תשובה</button>
-      <button onclick="newQuestion()" style="width:100%;margin-top:8px;padding:11px;border-radius:12px;background:none;border:1.5px solid var(--border);color:var(--muted);font-size:13px;font-weight:700;cursor:pointer;font-family:Heebo,sans-serif;">🔄 שאלה חדשה</button>
+      <button onclick="newQuestion()" style="width:100%;margin-top:8px;padding:11px;border-radius:12px;background:none;border:1.5px solid #7dd3fc;color:#1a3a6e;font-size:13px;font-weight:700;cursor:pointer;font-family:Heebo,sans-serif;">🔄 שאלה חדשה</button>
     </div>
 
     <!-- TOOL DETAIL -->
@@ -283,15 +283,15 @@ body{font-family:'Heebo',sans-serif;background:#0f172a !important;color:#f1f5f9 
     <div class="modal-box">
       <div class="modal-title">📱 GimlaTech – כלים דיגיטליים</div>
       <div class="modal-sub">כלי הנגשה דיגיטלית לוותיקים</div>
-      <div style="background:#0f172a;border-radius:12px;padding:14px;margin-bottom:14px">
+      <div style="background:#bfdbee;border-radius:12px;padding:14px;margin-bottom:14px">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:12px;line-height:2">
-          <div style="color:#94a3b8;border-left:1px solid #1e293b;padding-left:12px">
+          <div style="color:#1a3a6e;border-left:1px solid #a8d4e8;padding-left:12px">
             <strong style="color:#38bdf8">יוצרת:</strong> רויטל פלד<br>
             <strong style="color:#38bdf8">שנת יצירה:</strong> 2026<br>
             <strong style="color:#38bdf8">נבנה בסיוע:</strong> Claude AI מבית Anthropic<br>
             <strong style="color:#38bdf8">מטרה:</strong> הנגשת כלים דיגיטליים לוותיקים
           </div>
-          <div style="color:#64748b;text-align:left;direction:ltr;font-size:11px;line-height:2">
+          <div style="color:#1a3a6e;text-align:left;direction:ltr;font-size:11px;line-height:2">
             <strong style="color:#818cf8">Creator:</strong> Revital Peled<br>
             <strong style="color:#818cf8">Year:</strong> 2026<br>
             <strong style="color:#818cf8">Built with:</strong> Claude AI by Anthropic<br>
@@ -588,7 +588,7 @@ function showSug(inp,s){
   if(!s||!inp.value){clearSug();return;}
   var ov=document.getElementById('autocompleteOverlay');
   if(s.toLowerCase().indexOf(inp.value.toLowerCase())===0){
-    ov.innerHTML='<span style="color:transparent">'+esc(inp.value)+'</span><span style="color:var(--muted);opacity:0.6">'+esc(s.slice(inp.value.length))+'</span>';
+    ov.innerHTML='<span style="color:transparent">'+esc(inp.value)+'</span><span style="color:#1a3a6e;opacity:0.6">'+esc(s.slice(inp.value.length))+'</span>';
     lastSug=s;
   } else clearSug();
 }
@@ -827,7 +827,7 @@ function buildPanel(id){
     '<div class="tip-box"><span class="tip-label">💡 טיפ: </span>'+t.tip+'</div>'+
     installHTML+
     '<a href="'+t.url+'" target="_blank" class="'+btnClass+'">פתחו את '+t.name+' עכשיו ←</a>'+
-    '<button id="copy-btn-'+id+'" onclick="copySteps(&apos;'+id+'&apos;)" style="width:100%;margin:0 14px 16px;padding:11px;border-radius:12px;background:var(--surface);border:1.5px solid var(--border);color:var(--muted);font-size:13px;font-weight:700;cursor:pointer;font-family:Heebo,sans-serif;display:block;box-sizing:border-box;">📋 העתק מדריך</button>';
+    '<button id="copy-btn-'+id+'" onclick="copySteps(&apos;'+id+'&apos;)" style="width:100%;margin:0 14px 16px;padding:11px;border-radius:12px;background:#cde8f5;border:1.5px solid #7dd3fc;color:#1a3a6e;font-size:13px;font-weight:700;cursor:pointer;font-family:Heebo,sans-serif;display:block;box-sizing:border-box;">📋 העתק מדריך</button>';
 }
 function copySteps(id){
   var t=tools.filter(function(x){return x.id===id;})[0];
